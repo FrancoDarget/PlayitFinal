@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Generos</title>
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css" />
+    <script src="/javascripts/uikit.min.js"></script>
+    <script src="/javascripts/uikit-icons.min.js"></script>
+    <script src="/javascripts/uikit-icons.js"></script>
+    <script src="/javascripts/uikit.js"></script>
+    <link rel="stylesheet" href="/stylesheets/generos.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  </head>
+  <body>
+
+    <!-- Header -->
+    <%-include('header')%>
+    <!-- Header -->
+
+
+        <div class="listaGeneros">
+
+          <div class="columna">
+
+
+              <a class="accion uk-button uk-button-primary" style="background-color: rgba(0,0,0,0);border: none;" href="#actionmovies" offset="80" uk-scroll ></a>
+
+
+          </div>
+          <div class="columna">
+
+
+              <a class="horror uk-button uk-button-primary" style="background-color: rgba(0,0,0,0);border: none;" href="#horrormovies" offset="79" uk-scroll></a>
+
+
+
+
+              <a class="fantasy uk-button uk-button-primary" style="background-color: rgba(0,0,0,0); border: none;" href="#fantasymovies" offset="79" uk-scroll></a>
+
+
+          </div>
+          <div class="columna">
+
+
+              <a class="fiction uk-button uk-button-primary" style="background-color: rgba(0,0,0,0); border: none;" href="#fictionmovies" offset="79" uk-scroll></a>
+
+
+
+
+              <a class="drama uk-button uk-button-primary" style="background-color: rgba(0,0,0,0); border: none;" href="#dramamovies" offset="79" uk-scroll></a>
+
+
+
+
+              <a class="crime uk-button uk-button-primary" style="background-color: rgba(0,0,0,0); border: none;" href="#crimemovies" offset="79" uk-scroll></a>
+
+
+          </div>
+        </div>
+
+        <div id="movies" class="peliculas">
+          <div class="tituloGenero">
+            <h1  class="uk-animation-slide-bottom">Find the movie you are looking for</h1>
+          </div>
+
+          <h1 id="actionmovies" style="margin-top: 0;">Action</h1>
+
+          <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+
+              <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small contenedor-action">
+                <!-- Asi es el formato
+                 <li>
+                     <div class="uk-panel">
+                         <img src="./images/lampara.jpg" alt="">
+                         <div class="uk-position-center uk-panel"><h1></h1></div>
+                     </div>
+                 </li>
+               -->
+              </ul>
+
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+          </div>
+
+          <h1 id="horrormovies" style="margin-top: 4rem;">Horror</h1>
+
+          <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+
+              <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small contenedor-horror">
+                <!-- Asi es el formato
+                 <li>
+                     <div class="uk-panel">
+                         <img src="./images/lampara.jpg" alt="">
+                         <div class="uk-position-center uk-panel"><h1></h1></div>
+                     </div>
+                 </li>
+               -->
+              </ul>
+
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+          </div>
+
+          <h1 id="fantasymovies" style="margin-top: 4rem;">Fantasy</h1>
+
+          <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+
+              <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small contenedor-fantasy">
+                <!-- Asi es el formato
+                 <li>
+                     <div class="uk-panel">
+                         <img src="./images/lampara.jpg" alt="">
+                         <div class="uk-position-center uk-panel"><h1></h1></div>
+                     </div>
+                 </li>
+               -->
+              </ul>
+
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+          </div>
+
+          <h1 id="fictionmovies" style="margin-top: 4rem;">Science Fiction</h1>
+
+          <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+
+              <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small contenedor-fiction">
+                <!-- Asi es el formato
+                 <li>
+                     <div class="uk-panel">
+                         <img src="./images/lampara.jpg" alt="">
+                         <div class="uk-position-center uk-panel"><h1></h1></div>
+                     </div>
+                 </li>
+               -->
+              </ul>
+
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+          </div>
+
+          <h1 id="dramamovies" style="margin-top: 4rem;">Drama</h1>
+
+          <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+
+              <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small contenedor-drama">
+                <!-- Asi es el formato
+                 <li>
+                     <div class="uk-panel">
+                         <img src="./images/lampara.jpg" alt="">
+                         <div class="uk-position-center uk-panel"><h1></h1></div>
+                     </div>
+                 </li>
+               -->
+              </ul>
+
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+          </div>
+
+          <h1 id="crimemovies" style="margin-top: 4rem;">Crime</h1>
+
+          <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+
+              <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small contenedor-crime">
+                <!-- Asi es el formato
+                 <li>
+                     <div class="uk-panel">
+                         <img src="./images/lampara.jpg" alt="">
+                         <div class="uk-position-center uk-panel"><h1></h1></div>
+                     </div>
+                 </li>
+               -->
+              </ul>
+
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+          </div>
+        </div>
+
+
+        <!-- Footer-->
+          <%-include('footer')%>
+        <!-- Footer-->
+
+
+        <script src="/javascripts/login.js" charset="utf-8"></script>
+        <script rel="stylesheet" src="/javascripts/generos.js"></script>
+  </body>
+</html>
