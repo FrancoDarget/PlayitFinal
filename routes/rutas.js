@@ -12,6 +12,6 @@ router.get('/search', controlador.search); // Busca del objeto literal "controla
 
 router.get('/favorite', controlador.favorite); // Busca del objeto literal "controlador" el item favorite
 
-router.get('/detail?idpelicula=', controlador.detail); // Busca del objeto literal "controlador" el item favorite
+router.get('/detail', controlador.detail); // Busca del objeto literal "controlador" el item favorite
 
 module.exports = router; // Exporta el archivo de rutas para ser requerido en otras paginas

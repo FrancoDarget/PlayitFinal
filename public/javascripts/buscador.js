@@ -61,7 +61,7 @@ window.addEventListener('load' ,function(){
       for (var i = 0; i < arrayDePeliculas.length; i++) {
         if (arrayDePeliculas[i].poster_path != null) {
         li = "<li>"
-        li += "<a href='detalle.html?idPelicula="+arrayDePeliculas[i].id+"'>"
+        li += "<a href='/playit/detail?idPelicula="+arrayDePeliculas[i].id+"'>" //cambie detalle.html a /playit/detail
         li += "<p>" + arrayDePeliculas[i].title + "</p>"
         li += "<img src = '" + urlImg + arrayDePeliculas[i].poster_path + "' style='width:300px;'>"
         li += "</a>"
@@ -72,7 +72,7 @@ window.addEventListener('load' ,function(){
     })
     /*No funciona Busequeda*/
 
-    /*if (busqueda.value == null) {
+    /* if (busqueda.value == null) {
       UIkit.notification({
           message: 'Insert your name',
           status: 'danger',
@@ -86,7 +86,7 @@ window.addEventListener('load' ,function(){
           pos: 'top-center',
           timeout: 3000
       });
-    }*/
+    } */
 
     /*No funciona busqueda*/
     .catch(function(error){

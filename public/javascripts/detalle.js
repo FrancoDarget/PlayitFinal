@@ -104,7 +104,7 @@ window.addEventListener("load", function() {
      var genero= pelicula.genres
      for (i=0; i< genero.length; i++) {
        pelicula.genres[i]
-       document.querySelector(".generoDetalle").innerHTML= "<a href='generos.html'>"+pelicula.genres[i].name+"</a>"
+       document.querySelector(".generoDetalle").innerHTML= "<a href='/playit/genre'>"+pelicula.genres[i].name+"</a>"
  }
 })
 var url = "https://api.themoviedb.org/3/movie/ "+idPelicula+"/videos?api_key=704bd3935947752adbb2e6021fffa6dd&language=en-US"
@@ -133,7 +133,7 @@ fetch("https://api.themoviedb.org/3/movie/"+idPelicula+"/recommendations?api_key
     console.log(peliculas);
 
     for (var i = 0; i < peliculas.length; i++) {
-      document.querySelector(".contenedor-recomendados").innerHTML += '<li><div class="uk-panel"><a href="detalle.html?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original/' + peliculas[i].poster_path + '" alt=""></a><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
+      document.querySelector(".contenedor-recomendados").innerHTML += '<li><div class="uk-panel"><a href="/playit/detail?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original/' + peliculas[i].poster_path + '" alt=""></a><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
     }
   })
 /*NUEVA API*/

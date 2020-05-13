@@ -43,7 +43,7 @@ fetch("https://api.themoviedb.org/3/discover/movie?api_key=704bd3935947752adbb2e
     var peliculas = datos.results
 
     for (var i = 0; i < peliculas.length; i++) {
-      document.querySelector(".contenedor-action").innerHTML += '<li><div class="uk-panel"><a href="detalle.html?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
+      document.querySelector(".contenedor-action").innerHTML += '<li><div class="uk-panel"><a href="/playit/detail?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
     }
   })
 
@@ -56,7 +56,7 @@ fetch("https://api.themoviedb.org/3/discover/movie?api_key=704bd3935947752adbb2e
       console.log(peliculas);
 
       for (var i = 0; i < peliculas.length; i++) {
-        document.querySelector(".contenedor-horror").innerHTML += '<li><div class="uk-panel"><a href="detalle.html?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
+        document.querySelector(".contenedor-horror").innerHTML += '<li><div class="uk-panel"><a href="/playit/detail?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
       }
     })
 
@@ -69,7 +69,7 @@ fetch("https://api.themoviedb.org/3/discover/movie?api_key=704bd3935947752adbb2e
         console.log(peliculas);
 
         for (var i = 0; i < peliculas.length; i++) {
-          document.querySelector(".contenedor-fantasy").innerHTML += '<li><div class="uk-panel"><a href="detalle.html?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
+          document.querySelector(".contenedor-fantasy").innerHTML += '<li><div class="uk-panel"><a href="/playit/detail?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
         }
       })
 
@@ -82,7 +82,7 @@ fetch("https://api.themoviedb.org/3/discover/movie?api_key=704bd3935947752adbb2e
           console.log(peliculas);
 
           for (var i = 0; i < peliculas.length; i++) {
-            document.querySelector(".contenedor-fiction").innerHTML += '<li><div class="uk-panel"><a href="detalle.html?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
+            document.querySelector(".contenedor-fiction").innerHTML += '<li><div class="uk-panel"><a href="/playit/detail?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
           }
         })
 
@@ -95,7 +95,7 @@ fetch("https://api.themoviedb.org/3/discover/movie?api_key=704bd3935947752adbb2e
             console.log(peliculas);
 
             for (var i = 0; i < peliculas.length; i++) {
-              document.querySelector(".contenedor-drama").innerHTML += '<li><div class="uk-panel"><a href="detalle.html?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
+              document.querySelector(".contenedor-drama").innerHTML += '<li><div class="uk-panel"><a href="/playit/detail?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
             }
           })
 
@@ -108,7 +108,7 @@ fetch("https://api.themoviedb.org/3/discover/movie?api_key=704bd3935947752adbb2e
               console.log(peliculas);
 
               for (var i = 0; i < peliculas.length; i++) {
-                document.querySelector(".contenedor-crime").innerHTML += '<li><div class="uk-panel"><a href="detalle.html?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
+                document.querySelector(".contenedor-crime").innerHTML += '<li><div class="uk-panel"><a href="/playit/detail?idPelicula='+peliculas[i].id+'"><img src="https://image.tmdb.org/t/p/original' + peliculas[i].poster_path + '" alt=""><div class="uk-position-center uk-panel"><h1></h1></div></div></li>'
               }
             })
 
