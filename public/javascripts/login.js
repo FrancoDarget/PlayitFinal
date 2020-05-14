@@ -1,3 +1,4 @@
+/*
 window.addEventListener('load' ,function(){
 
 var form = document.querySelector('#formlogin')
@@ -63,3 +64,4 @@ var salir = document.getElementById('yesbutton')
   })
 
 })
+*/
