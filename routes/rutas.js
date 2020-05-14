@@ -12,6 +12,8 @@ router.get('/search', controlador.search); // Busca del objeto literal "controla
 
 router.get('/favorite', controlador.favorite); // Busca del objeto literal "controlador" el item favorite
 
-router.get('/detail', controlador.detail); // Busca del objeto literal "controlador" el item favorite
+router.get('/detail', controlador.detail); // Busca del objeto literal "controlador" el item detail
+
+router.post('/login', controlador.login); // Agarra los datos que el usuario llena en el login
 
 module.exports = router; // Exporta el archivo de rutas para ser requerido en otras paginas
