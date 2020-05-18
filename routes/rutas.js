@@ -14,6 +14,6 @@ router.get('/favorite', controlador.favorite); // Busca del objeto literal "cont
 
 router.get('/detail', controlador.detail); // Busca del objeto literal "controlador" el item detail
 
-router.post('/login', controlador.login); // Agarra los datos que el usuario llena en el login
+router.post('/registration', controlador.registration); // Agarra los datos que el usuario llena en el registration
 
 module.exports = router; // Exporta el archivo de rutas para ser requerido en otras paginas

@@ -1,3 +1,7 @@
+const playitBD = require('basededatos'); // Agarra la base de datos
+const bcrypt = require('bcryptjs'); // Comando para incriptar la data
+let passEncriptada = bcrypt.hashSync(req.body.formlogin.password, 10); // Incripta los datos para usar en la pass
+
 // Controlador: Objeto literal que tiene todos los controladores de la ruta. 
 let controlador = {
     
@@ -25,17 +29,17 @@ let controlador = {
         res.render('detail')
       },
 
-      // A tener en cuenta: Una cosa es el register (Me va a insertar la data en tabla de usuarios).
-      // Despues esta el login. Lo vamos a hacer mas local. Modulo con 3 metodos para chequear datos en la base.
-      // Voy a poder meterme y editar resenas. Aprieto click para editar la resena, y me va a pedir la verificacion. Esa verificacion corre por modulo de login. 
-
-    login: (req,res)=>{ //ESTO ES REGISTRACION
+    registration: (req,res)=>{ //ESTO ES REGISTRACION
        if(errores.length>0){
            res.send ("HAY ERRORES") // Si hay errores en los datos completados por el usuario, salta un cartel de ERROR
        } 
-       else{
-           playitBD.tablaUsuarios.create(usuario) // Estoy creando una fila en nuestra BD en la tabla tablaUsuarios con los datos del form del log in
-           req.body.registracion // Esto toma la info que el usuario completo en el form de log in
+       else{ // Estoy creando un nuevo usuario en la base de datos con la informacion que el usuario completo en el registration. 
+           playitBD.usuarios.create({
+               name: req.body.formlogin.name, // Esto toma el name que el usuario completo en el form de registration
+               email: req.body.formlogin.email,
+               password:passEncriptada, // Guarda la password encriptada.
+               birthdate: req.body.formlogin.date,
+           }) 
        
         }
     }  
