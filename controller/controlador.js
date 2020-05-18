@@ -1,4 +1,4 @@
-const playitBD = require('playitBD'); // Agarra la base de datos
+const playitBD = require('../database/models'); // Agarra la base de datos
 const bcrypt = require('bcryptjs'); // Comando para incriptar la data
 
 // Controlador: Objeto literal que tiene todos los controladores de la ruta. 
