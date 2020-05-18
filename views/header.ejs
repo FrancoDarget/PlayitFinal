@@ -63,19 +63,19 @@
         </span>
         <p>Registracion</p>
 
-        <form id="formlogin" name="login" method='POST' action=""> <!--AGREGO NAME Y METHOD para que funvione la ruta por metodo post y los datos se guarden-->
+        <form id="formlogin" name="login" method='POST' action="/registration"> <!--AGREGO NAME Y METHOD para que funvione la ruta por metodo post y los datos se guarden-->
 
           <div class="uk-margin">
             <div class="uk-inline uk-width-2-3">
               <span class="uk-form-icon" uk-icon="icon: user"></span>
-              <input class="uk-input" type="text" id="name">
+              <input class="uk-input" type="text" name='user' id="name">
             </div>
           </div>
 
           <div class="uk-margin">
             <div class="uk-inline uk-width-2-3">
               <span class="uk-form-icon" uk-icon="icon: mail"></span>
-              <input class="uk-input" type="text" id="email">
+              <input class="uk-input" type="text" id="email" name='email'>
             </div>
           </div>
 
