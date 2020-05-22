@@ -30,20 +30,19 @@ let controlador = {
       },
 
     registration: (req,res)=>{ //ESTO ES REGISTRACION
-       if(errores.length>0){
-           res.send ("HAY ERRORES") // Si hay errores en los datos completados por el usuario, salta un cartel de ERROR
-       } 
-       else{ // Estoy creando un nuevo usuario en la base de datos con la informacion que el usuario completo en el registration. 
+        // Estoy creando un nuevo usuario en la base de datos con la informacion que el usuario completo en el registration. 
         let passEncriptada = bcrypt.hashSync(req.body.password, 10); // Incripta los datos para usar en la pass
-           playitBD.Usuario.create({
+           let usuario= {
                name: req.body.user, // Esto toma el name que el usuario completo en el form de registration
                email: req.body.email,
                password:passEncriptada, // Guarda la password encriptada.
                birthdate: req.body.date,
-           }) 
-       res.render('home');
+           }
+           playitBD.usuarios.create(usuario) //estoy creando usuarios(let dentro de registration) en mi base de datos (playiBD esta definida arriba)
+           res.redirect("/playit/home")   //cuando apretas submit nos lleva a home
+     
         }
     }  
-}
+
 
 module.exports = controlador;
