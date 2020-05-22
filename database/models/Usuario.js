@@ -9,7 +9,7 @@
 
     }
     let config= {tableName:"usuarios", //el nombre de mi tabla en la base de datos
-                  timeStamps: false, }  // no tiene las columnas created at y updated at
+                  timestamps: false, }  // no tiene las columnas created at y updated at
     const usuarios= sequelize.define("usuarios",cols,config) //defino el modelo usuarios
     return usuarios;
 }
