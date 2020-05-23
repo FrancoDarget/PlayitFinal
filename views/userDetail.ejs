@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="/stylesheets/users.css">
+    <link rel="stylesheet" href="/stylesheets/userDetail.css">
     <link rel="stylesheet" href="/stylesheets/uikit-rtl.css">
     <link rel="stylesheet" href="/stylesheets/uikit-rtl.min.css">
     <link rel="stylesheet" href="/stylesheets/uikit.css">
@@ -15,7 +15,79 @@
     <%-include('header')%>
     <!-- Header -->
 
-        
+    <div class="titulo"><h1>Welcome to your profile details</h1></div>
+
+        <div class="perfil">
+            <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
+            <div class="datos">
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">User:</h3><p style="margin: 0px 0px 0px 10px;">francodarget</p></span>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Email:</h3><p style="margin: 0px 0px 0px 10px;">franco@gmail.com</p></span>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Birth date:</h3><p style="margin: 0px 0px 0px 10px;">02/02/2001</p></span>
+            </div>
+        </div>
+
+        <div class="reviewsTitulo"><h1>Your Reviews</h1></div>
+
+         <!-- Lista con todos los reviews -->
+      <div class="listadoReviews"> 
+
+        <!-- Item de review -->
+        <div class="item" style='border-top: 0px solid #f7f7f7!important;'>
+          <div class="review"><p>Review</p></div>
+          <div class="option">
+            <p>Score</p>
+          </div>
+          <div class="option">
+            <p>Edit</p>
+          </div>
+          <div class="option">
+            <p>Movie</p>
+          </div>
+          <div class="option">
+            <p>Delete</p>
+          </div>
+        </div>
+        <!-- Item de review -->
+
+        <!-- Item de review -->
+        <div class="item">
+            <div class="review"><p>Me gusto mucho la pelicula...</p></div>
+            <div class="option">
+              <p>8</p>
+            </div>
+            <div class="option">
+              <p><span uk-icon="pencil"></span></p>
+            </div>
+            <div class="option">
+              <p><span uk-icon="video-camera"></span></p>
+            </div>
+            <div class="option">
+              <p>x</p>
+            </div>
+          </div>
+          <!-- Item de review -->
+
+          <!-- Item de review -->
+        <div class="item">
+            <div class="review"><p>De las peores que vi en mi vida</p></div>
+            <div class="option">
+              <p>3</p>
+            </div>
+            <div class="option">
+              <p><span uk-icon="pencil"></span></p>
+            </div>
+            <div class="option">
+              <p><span uk-icon="video-camera"></span></p>
+            </div>
+            <div class="option">
+              <p>x</p>
+            </div>
+          </div>
+          <!-- Item de review -->
+
+       
+      </div>
+      <!-- Lista con todos los reviews -->
 
     <!-- Footer-->
     <%-include('footer')%>

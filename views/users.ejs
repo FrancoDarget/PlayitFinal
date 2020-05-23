@@ -25,13 +25,13 @@
       <div class="buscador">
         <nav class="uk-navbar-container" uk-navbar>
             <div class="uk-navbar-left">
-                <div class="uk-navbar-item">
+                <div class="uk-navbar-item" style="padding: 0px!important;">
                     <form method="GET" action="/playit/search" class="uk-search uk-search-navbar"> <!-- cambie action  -->
                         <span uk-search-icon></span>
-                        <input class="uk-search-input busqueda" type="search" placeholder="" name="busqueda">
+                        <input class="uk-search-input busqueda" type="search" placeholder="" name="busqueda" style="background-color: white!important;">
                         <!-- <button type="submit" name="button">Buscar</button> -->
     
-                        <button class="searchbutton" type="submit" name="button">Search</button>
+                        <button class="searchbutton" type="submit" name="button" style="background-color: white!important;">Search</button>
                     </form>
                 </div>
             </div>
@@ -40,6 +40,24 @@
       <!-- Barra de buscar -->
       <!-- Lista con todos los usuarios -->
       <div class="listadoUsuarios">
+
+        <!-- Item de usuario -->
+        <div class="usuario" style='border-top: 0px solid #f7f7f7!important;'>
+          <div class="imagen"><p>Image</p></div>
+          <div class="nombre data">
+            <p>Name</p>
+          </div>
+          <div class="email data">
+            <p>Email</p>
+          </div>
+          <div class="nacimiento data">
+            <p>Birth Date</p>
+          </div>
+          <div class="detalles">
+            <a href=""></a>
+          </div>
+        </div>
+        <!-- Item de usuario -->
 
 
 
