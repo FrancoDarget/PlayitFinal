@@ -16,4 +16,8 @@ router.get('/detail', controlador.detail); // Busca del objeto literal "controla
 
 router.post('/registration', controlador.registration); // Agarra los datos que el usuario llena en el registration
 
+router.get('/users', controlador.users); // Busca del objeto literal "controlador" el item usuarios
+
+router.get('/usersdetails', controlador.userdetails); // Busca del objeto literal "controlador" el item usuarios
+
 module.exports = router; // Exporta el archivo de rutas para ser requerido en otras paginas
