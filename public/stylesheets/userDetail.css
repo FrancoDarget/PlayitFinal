@@ -293,6 +293,15 @@ body {
     margin: 0px;
 }
 
+.item a{
+    color: black;
+    text-decoration: none;
+}
+
+.item a:hover{
+    text-decoration: none;
+}
+
 .review{
     width: 80%;
 }
