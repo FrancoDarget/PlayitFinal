@@ -18,6 +18,8 @@ router.post('/registration', controlador.registration); // Agarra los datos que 
 
 router.get('/users', controlador.users); // Busca del objeto literal "controlador" el item usuarios
 
-router.get('/usersdetails', controlador.userdetails); // Busca del objeto literal "controlador" el item usuarios
+router.get('/usersdetails', controlador.userdetails); // Busca del objeto literal "controlador" el item usuerdetails
+
+router.get('/myreviews', controlador.myReviews); // Busca del objeto literal "controlador" el item myReviews
 
 module.exports = router; // Exporta el archivo de rutas para ser requerido en otras paginas
