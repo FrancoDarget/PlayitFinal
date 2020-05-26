@@ -30,8 +30,8 @@ let controlador = {
     },
 
     detail:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque el detalle de una pelicula
-      var idPelicula = req.query.idPelicula
-      playitBD.resenas.findAll(
+      var idPelicula = req.query.idPelicula  //agarra el id de la pelicula de la url
+      playitBD.resenas.findAll( //pide que busque en la bd tds las resenas de la pelicula con ese id
         {
           where:{
               idPelicula: idPelicula,
@@ -40,7 +40,7 @@ let controlador = {
       )
     .then(function(resenas){
       var idPelicula = req.query.idPelicula    
-    res.render("detail", {resenas: resenas, idPelicula:idPelicula})
+    res.render("detail", {resenas: resenas, idPelicula:idPelicula})  //mando a la vista las variables creadas
     })
 
   },
