@@ -11,7 +11,7 @@ module.exports=(sequelize,DataTypes)=>{
 
     }
     let config= {tableName:"resenas", // nombre de mi table en la base de datos
-                  timeStamps: false}  // no tiene las columnas updated ni created at
+                  timestamps: false}  // no tiene las columnas updated ni created at
     const resenas= sequelize.define("resenas",cols,config) // creo el modelo
     return resenas;
 }
