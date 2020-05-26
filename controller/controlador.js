@@ -90,7 +90,8 @@ let controlador = {
           console.log (nuevaResena)
           playitBD.resenas.create(nuevaResena) //crea la resena en la tabla de la bd cn lo que escribio el usuario
           .then ( function (){
-            return res.redirect('/playit/home')}) //te redirecciona al detalle
+            var idPelicula = req.body.idPelicula
+            return res.redirect('/playit/detail?idPelicula='+idPelicula)}) //te redirecciona al detalle
         }
           else{
             return res.send ("hay un error")
