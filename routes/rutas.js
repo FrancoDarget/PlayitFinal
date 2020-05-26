@@ -24,5 +24,7 @@ router.get('/myreviews', controlador.myReviews); // Busca del objeto literal "co
 
 router.get('/login', controlador.login); // Busca del objeto literal "controlador" el item myReviews
 
+router.post ('/resenas', controlador.nuevaResena);
+
 
 module.exports = router; // Exporta el archivo de rutas para ser requerido en otras paginas

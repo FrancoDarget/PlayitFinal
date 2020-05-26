@@ -12,4 +12,8 @@
                   timestamps: false, }  // no tiene las columnas created at y updated at
     const usuarios= sequelize.define("usuarios",cols,config) //defino el modelo usuarios
     return usuarios;
+    usuarios.associate= function(models){ //asociacion entre la tabla de resenas y usuario 
+        usuarios.hasMany(models.resenas, {
+            as: "reviews",
+            ForeignKey: "idUsuario"})}
 }

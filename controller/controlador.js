@@ -1,5 +1,7 @@
 const playitBD = require('../database/models/index'); // Agarra la base de datos
 const bcrypt = require('bcryptjs'); // Comando para incriptar la data
+const modulo = require('../modulos/moduloLogin'); // requiero el modulo de log in
+const OP = playitBD.Sequelize.Op;
 
 
 // Controlador: Objeto literal que tiene todos los controladores de la ruta. 
@@ -57,7 +59,31 @@ let controlador = {
            playitBD.usuarios.create(usuario) //estoy creando usuarios(let dentro de registration) en mi base de datos (playiBD esta definida arriba)
            res.redirect("/playit/home")   //cuando apretas submit nos lleva a home
      
-        }
+        },
+      nuevaResena: (req,res)  =>{
+        modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
+        .then(resultado=>{        
+          playitBD.Resenas.create({   //crea la resena en la tabla de la bd cn lo que escribio el usuario
+            resena: req.body.comment, //saca la info de lo q competa el usuario
+            puntaje: req.body.puntaje, // saca la info de lo q completa el usuario
+            idUsuario: resultado.idUsuario, //lo saca de los datos que me trajo mi base de datos
+            idPelicula: req.params.idPelicula, //idPelicula es una variable creada en mi detalle.js
+          })
+          
+          
+          
+          
+        })
+        .then(function(detail){
+          return res.redirect('/playit/detail'+req.params.idPelicula) //te vuelve a direccionar a la pag de datalle
+        })
+        .catch(function(error){  // si hay error, cartelito
+          return res.send ("hay un error")
+        })
+
+      }
+
+        
     }  
 
 

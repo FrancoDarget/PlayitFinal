@@ -95,28 +95,29 @@
 
 <div class="crearResena">
   <h1>Leave a Comment</h1>
-  <form>
+  <form name= "resenas" method= 'POST' action= '/playit/resenas'> <!-- le digo metodo y name p q funcione la ruta -->
 
     <div class="uk-margin">
         <div class="uk-inline">
             <span class="uk-form-icon" uk-icon="icon: mail"></span>
-            <input class="uk-input  uk-form-width-large" type="text" placeholder="Email">
+            <input class="uk-input  uk-form-width-large" type="text" name='email' placeholder="Email"> <!-- agrego name p el controlador -->
+
         </div>
     </div>
 
     <div class="uk-margin">
       <div class="uk-inline">
           <span class="uk-form-icon" uk-icon="icon: lock"></span>
-          <input class="uk-input uk-form-width-large" type="password" placeholder="Password">
+          <input class="uk-input uk-form-width-large" type="password" name='password' placeholder="Password">
       </div>
   </div>
 
   <div class="uk-margin">
-    <textarea class="uk-textarea uk-form-width-large" rows="5" placeholder="Comment"></textarea>
+    <textarea class="uk-textarea uk-form-width-large" rows="5" name='comment' placeholder="Comment"></textarea>
   </div>
 
 <div class="uk-margin">
-  <input class="uk-range uk-form-width-large" type="range" value="1" min="1" max="10" step="1">
+  <input class="uk-range uk-form-width-large" type="range" name="puntaje" value="1" min="1" max="10" step="1">
 </div>
 <p style="text-align: left;">9</p>
 
