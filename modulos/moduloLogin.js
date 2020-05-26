@@ -36,6 +36,4 @@ let moduloLogin = {
         })
     }
 }
-
-
 module.exports = moduloLogin;

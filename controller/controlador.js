@@ -4,6 +4,8 @@ const modulo = require('../modulos/moduloLogin'); // requiero el modulo de log i
 const OP = playitBD.Sequelize.Op;
 
 
+
+
 // Controlador: Objeto literal que tiene todos los controladores de la ruta. 
 let controlador = {
     
@@ -28,9 +30,20 @@ let controlador = {
     },
 
     detail:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque el detalle de una pelicula
-        res.render('detail')
-      },
+      var idPelicula = req.query.idPelicula
+      playitBD.resenas.findAll(
+        {
+          where:{
+              idPelicula: idPelicula,
+          }}
+    
+      )
+    .then(function(resenas){
+      var idPelicula = req.query.idPelicula    
+    res.render("detail", {resenas: resenas, idPelicula:idPelicula})
+    })
 
+  },
       users:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque los usuarios
         res.render('users')
       },
@@ -62,24 +75,30 @@ let controlador = {
         },
       nuevaResena: (req,res)  =>{
         modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
-        .then(resultado=>{        
-          playitBD.Resenas.create({   //crea la resena en la tabla de la bd cn lo que escribio el usuario
+        .then(resultado=>{  
+          console.log(resultado) //me muestra los datos de la bd del usuario
+        
+          if(resultado != null){ // si existe un resultado, crea la resena. Resultado esta definido en el mdulo de login
+
+        
+          let nuevaResena= {   
             resena: req.body.comment, //saca la info de lo q competa el usuario
             puntaje: req.body.puntaje, // saca la info de lo q completa el usuario
-            idUsuario: resultado.idUsuario, //lo saca de los datos que me trajo mi base de datos
-            idPelicula: req.params.idPelicula, //idPelicula es una variable creada en mi detalle.js
-          })
-          
-          
-          
+            idUsuario: resultado.id, //lo saca de los datos que me trajo mi base de datos
+            idPelicula: req.body.idPelicula, //idPelicula esta definida arriba de todo
+          }
+          console.log (nuevaResena)
+          playitBD.resenas.create(nuevaResena) //crea la resena en la tabla de la bd cn lo que escribio el usuario
+          .then ( function (){
+            return res.redirect('/playit/home')}) //te redirecciona al detalle
+        }
+          else{
+            return res.send ("hay un error")
+          }
           
         })
-        .then(function(detail){
-          return res.redirect('/playit/detail'+req.params.idPelicula) //te vuelve a direccionar a la pag de datalle
-        })
-        .catch(function(error){  // si hay error, cartelito
-          return res.send ("hay un error")
-        })
+        
+      
 
       }
 

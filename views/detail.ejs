@@ -96,7 +96,7 @@
 <div class="crearResena">
   <h1>Leave a Comment</h1>
   <form name= "resenas" method= 'POST' action= '/playit/resenas'> <!-- le digo metodo y name p q funcione la ruta -->
-
+    <input type="hidden" name="idPelicula" value="<%=idPelicula%>">
     <div class="uk-margin">
         <div class="uk-inline">
             <span class="uk-form-icon" uk-icon="icon: mail"></span>
@@ -129,21 +129,24 @@
 <div class="listadoUsuarios">
 
   <!-- Item de usuario -->
-  <div class="usuario" style='border-top: 0px solid #f7f7f7!important;'>
+ <% for(i=0; i<resenas.length; i++){ %>
+    <div class="usuario" style='border-top: 0px solid #f7f7f7!important;'>
     <div class="imagen"><p>Image</p></div>
     <div class="nombre data">
-      <p>User</p>
+      <p>nombre de usuario </p>
     </div>
     <div class="email data">
-      <p>Comment</p>
+      <p><%= resenas[i].resena %></p>
     </div>
     <div class="nacimiento data">
-      <p>Score</p>
+      <p><%= resenas[i].puntaje %></p>
     </div>
     <div class="detalles">
       <a href=""></a>
     </div>
   </div>
+  <% } %>
+
   <!-- Item de usuario -->
 
   <!-- Item de usuario -->
