@@ -3,7 +3,7 @@ const OP = playitBD.Sequelize.Op; //para poder usar las funciones de sequelize
 
 let moduloLogin = {
     chequearUsuario: function (email) {
-        return playitBD.Usuario.findOne({
+        return playitBD.usuarios.findOne({
             where: {
                 email: email
             }
@@ -14,7 +14,7 @@ let moduloLogin = {
     },
 
     buscarPorEmail: function (email){
-        return playitBD.Usuario.findOne({
+        return playitBD.usuarios.findOne({
             where: [{
                 email:email
             }]

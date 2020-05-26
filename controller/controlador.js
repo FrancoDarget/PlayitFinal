@@ -57,9 +57,22 @@ let controlador = {
       },
 
       login:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus reviews
+        
         res.render('login')
       },
+      loginPost: (req,res)=>{
+        modulo.validar(req.body.email, req.body.password)
+        .then(resultado=>{  
+          console.log(resultado)
+          if(resultado != null){
+            res.redirect('/playit/usersdetails')
+          }
+          else{
+            res.redirect('/playit/home')
+          }
+        })
 
+      },
     registration: (req,res)=>{ //ESTO ES REGISTRACION
         // Estoy creando un nuevo usuario en la base de datos con la informacion que el usuario completo en el registration. 
         let passEncriptada = bcrypt.hashSync(req.body.password, 10); // Incripta los datos para usar en la pass
