@@ -129,42 +129,44 @@
 <div class="listadoUsuarios">
 
   <!-- Item de usuario -->
- <% for(i=0; i<resenas.length; i++){ %>
+ 
     <div class="usuario" style='border-top: 0px solid #f7f7f7!important;'>
     <div class="imagen"><p>Image</p></div>
     <div class="nombre data">
-      <p>nombre de usuario </p>
+      <p> Users </p>
     </div>
     <div class="email data">
+      <p>Comment</p>
+    </div>
+    <div class="nacimiento data">
+      <p>Puntaje</p>
+    </div>
+    <div class="detalles">
+      <a href=""></a>
+    </div>
+  </div>
+  
+
+  <!-- Item de usuario -->
+
+  <!-- Item de usuario -->
+  <% for(i=0; i<resenas.length; i++){ %>
+  <div class="usuario">
+    <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
+    <div class="nombre data">
+      <p>nombre de usuario</p>
+    </div>
+    <div class="nacimiento data">
       <p><%= resenas[i].resena %></p>
     </div>
     <div class="nacimiento data">
       <p><%= resenas[i].puntaje %></p>
     </div>
     <div class="detalles">
-      <a href=""></a>
-    </div>
-  </div>
-  <% } %>
-
-  <!-- Item de usuario -->
-
-  <!-- Item de usuario -->
-  <div class="usuario">
-    <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
-    <div class="nombre data">
-      <p>francodarget</p>
-    </div>
-    <div class="nacimiento data">
-      <p>Me parecio excelente!</p>
-    </div>
-    <div class="nacimiento data">
-      <p>8</p>
-    </div>
-    <div class="detalles">
       <a href="">+</a>
     </div>
   </div>
+  <% } %>
   <!-- Item de usuario -->
 
   <!-- Item de usuario -->
