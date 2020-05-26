@@ -65,7 +65,7 @@ let controlador = {
         .then(resultado=>{  
           console.log(resultado)
           if(resultado != null){
-            res.redirect('/playit/usersdetails')
+            res.redirect('/playit/myreviews')
           }
           else{
             res.redirect('/playit/home')
