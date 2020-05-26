@@ -224,6 +224,41 @@ header a:hover{
   font-size: 17px;
 }
 
+.Contenedorlog{
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,0.6);
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cajaLog{
+  width: 30%;
+  height: 50vh;
+  background-color: white;
+  border-radius: 30px;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  box-shadow: 5px black;
+}
+
+.cerrarLog{
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.cerrarLog:hover{
+color: red;
+}
+
 /* Header */
 
 .hero{

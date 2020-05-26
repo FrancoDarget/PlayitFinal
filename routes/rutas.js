@@ -22,4 +22,7 @@ router.get('/usersdetails', controlador.userdetails); // Busca del objeto litera
 
 router.get('/myreviews', controlador.myReviews); // Busca del objeto literal "controlador" el item myReviews
 
+router.get('/login', controlador.login); // Busca del objeto literal "controlador" el item myReviews
+
+
 module.exports = router; // Exporta el archivo de rutas para ser requerido en otras paginas
