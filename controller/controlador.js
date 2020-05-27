@@ -1,3 +1,5 @@
+// NUEVA VERSION
+
 const playitBD = require('../database/models/index'); // Agarra la base de datos
 const bcrypt = require('bcryptjs'); // Comando para incriptar la data
 const modulo = require('../modulos/moduloLogin'); // requiero el modulo de log in
