@@ -45,15 +45,6 @@ let controlador = {
 
   },
       users:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque los usuarios
-       let nombreUsuario = req.query.nombreUsuario
-        playitBD.usuarios.findAll( //pide que busque en la bd tds las resenas de la pelicula con ese id
-          {
-            where:{
-                name: nombreUsuario, // uno es mi nombre de la columna de mi bd, el otro es la var que cree arriba
-            }}
-      
-        ),        
-        
         res.render('users')
       },
 
