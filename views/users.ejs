@@ -26,12 +26,12 @@
         <nav class="uk-navbar-container" uk-navbar>
             <div class="uk-navbar-left">
                 <div class="uk-navbar-item" style="padding: 0px!important;">
-                    <form method="GET" action="/playit/search" class="uk-search uk-search-navbar"> <!-- cambie action  -->
+                    <form method="POST" action="/playit/listadoUsuarios" class="uk-search uk-search-navbar"> <!-- cambie action  -->
                         <span uk-search-icon></span>
-                        <input class="uk-search-input busqueda" type="search" placeholder="" name="busqueda" style="background-color: white!important;">
+                        <input class="uk-search-input busqueda" type="search" placeholder="" name="nombreUsuario" style="background-color: white!important;">
                         <!-- <button type="submit" name="button">Buscar</button> -->
     
-                        <button class="searchbutton" type="submit" name="button" style="background-color: white!important;">Search</button>
+                        <button class="searchbutton" type="submit" name="" style="background-color: white!important;">Search</button>
                     </form>
                 </div>
             </div>

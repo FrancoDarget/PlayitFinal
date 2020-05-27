@@ -13,10 +13,10 @@ let moduloLogin = {
         })
     },
 
-    buscarPorEmail: function (email){
+    buscarPorName: function (name){
         return playitBD.usuarios.findOne({
             where: [{
-                email:email       //busca usuario x mail, si existe retorna TODOS SUS DATOS
+                name:{[OP.like]: '%'+name+'%'}      //busca usuario x name, si existe retorna TODOS SUS DATOS. El OP.like permite que no tengas que poner el dato completo
             }]
         })
         .then(resultado=> {

@@ -48,6 +48,19 @@ let controlador = {
         res.render('users')
       },
 
+      usersPost: (req,res)=>{
+        var nombreUsuario = req.body.nombreUsuario // Agarra el input del buscador de usuarios que tiene de name "nombreUsuario" y lo guarda en una variable "nombreUsuario"
+        console.log(nombreUsuario) // Imprime en consola lo que puso el usuario
+        modulo.buscarPorName(nombreUsuario) // Chequea si el nombre insertado en el imput existe en la base de datos
+        .then(resultado =>{  
+          if(resultado != null){ // Si el resultado es distinto a null...
+            res.send(resultado) // Imprime el resultado en consola
+          }else{ // Si no...
+            print('No existe') // Imprime que hubo un error
+          }
+        })
+      },
+
       userdetails:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus datos
         res.render('userDetail')
       },
