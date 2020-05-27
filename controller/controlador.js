@@ -34,7 +34,7 @@ let controlador = {
       playitBD.resenas.findAll( //pide que busque en la bd tds las resenas de la pelicula con ese id
         {
           where:{
-              idPelicula: idPelicula,
+              idPelicula: idPelicula, // uno es mi nombre de la columna de mi bd, el otro es la var que cree arriba
           }}
     
       )
@@ -92,8 +92,6 @@ let controlador = {
           console.log(resultado) //me muestra los datos de la bd del usuario
         
           if(resultado != null){ // si existe un resultado, crea la resena. Resultado esta definido en el mdulo de login
-
-        
           let nuevaResena= {   
             resena: req.body.comment, //saca la info de lo q competa el usuario
             puntaje: req.body.puntaje, // saca la info de lo q completa el usuario
@@ -106,6 +104,7 @@ let controlador = {
             var idPelicula = req.body.idPelicula
             return res.redirect('/playit/detail?idPelicula='+idPelicula)}) //te redirecciona al detalle
         }
+
           else{
             return res.send ("hay un error")
           }
