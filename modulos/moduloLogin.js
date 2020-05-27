@@ -23,6 +23,17 @@ let moduloLogin = {
             return resultado
         })
     },
+    
+    buscarPorEmail: function (email){
+        return playitBD.usuarios.findOne({
+            where: [{
+                email: email      //busca usuario x email, si existe retorna TODOS SUS DATOS. 
+            }]
+        })
+        .then(resultado=> {
+            return resultado
+        })
+    },
 
     validar: function (email, password) {
         return playitBD.usuarios.findOne({    // me dice si existe un usuario con ese mail y contrasena

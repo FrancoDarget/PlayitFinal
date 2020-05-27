@@ -56,9 +56,17 @@ let controlador = {
           if(resultado != null){ // Si el resultado es distinto a null...
             res.send(resultado) // Imprime el resultado en consola
           }else{ // Si no...
-            print('No existe') // Imprime que hubo un error
+            res.send('No existe') // Imprime que hubo un error
           }
         })
+        // modulo.buscarPorEmail(nombreUsuario)
+        // .then(resultado =>{  
+        //   if(resultado != null){ // Si el resultado es distinto a null...
+        //     res.send(resultado) // Imprime el resultado en consola
+        //   }else{ // Si no...
+        //     res.send('No existe') // Imprime que hubo un error
+        //   }
+        // })
       },
 
       userdetails:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus datos
