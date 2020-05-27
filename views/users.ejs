@@ -59,6 +59,26 @@
         </div>
         <!-- Item de usuario -->
 
+         <!-- Item de usuario -->
+    <% for(i=0; i<usuarios.length; i++){ %>
+    <div class="usuario">
+      <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
+      <div class="nombre data">
+        <p><%= usuarios[i].name %></p>   <!-- de la tabla usuarios agarra name -->
+      </div>
+      <div class="nacimiento data">
+        <p><%= usuarios[i].email %></p>  <!-- de la tabla usuarios agarra email -->
+      </div>
+      <div class="nacimiento data">
+        <p><%= usuarios[i].birthdate %></p>  <!-- de la tabla usuarios agarra birthdate -->
+      </div>
+      </div>
+      <div class="detalles">
+        <a href="">+</a>
+      </div>
+    </div>
+    <% } %>
+    <!-- Item de usuario -->
 
 
         <!-- Item de usuario -->

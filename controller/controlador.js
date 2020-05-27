@@ -45,6 +45,15 @@ let controlador = {
 
   },
       users:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque los usuarios
+       let nombreUsuario = req.query.nombreUsuario
+        playitBD.usuarios.findAll( //pide que busque en la bd tds las resenas de la pelicula con ese id
+          {
+            where:{
+                name: nombreUsuario, // uno es mi nombre de la columna de mi bd, el otro es la var que cree arriba
+            }}
+      
+        ),        
+        
         res.render('users')
       },
 
@@ -54,7 +63,7 @@ let controlador = {
         modulo.buscarPorName(nombreUsuario) // Chequea si el nombre insertado en el imput existe en la base de datos
         .then(resultado =>{  
           if(resultado != null){ // Si el resultado es distinto a null...
-            res.send(resultado) // Imprime el resultado en consola
+            res.redirect('playit/users') // Imprime el resultado en consola
           }else{ // Si no...
             res.send('No existe') // Imprime que hubo un error
           }
