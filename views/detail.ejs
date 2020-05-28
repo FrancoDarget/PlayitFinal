@@ -150,11 +150,11 @@
   <!-- Item de usuario -->
 
   <!-- Item de usuario -->
-  <% for(i=0; i<resenas.length; i++){ %>
+  <% for(let i=0; i<resenas.length; i++){ %>
   <div class="usuario">
     <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
     <div class="nombre data">
-      <p>nombre de usuario</p>
+      <p><%= resenas[i].users.name %></p>
     </div>
     <div class="nacimiento data">
       <p><%= resenas[i].resena %></p>  <!-- de la tabla resena agarra resena -->

@@ -16,16 +16,18 @@
     <!-- Header -->
 
     <div class="titulo"><h1>Welcome to your profile details</h1></div>
-
+      
         <div class="perfil">
             <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
+            
             <div class="datos">
-                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">User:</h3><p style="margin: 0px 0px 0px 10px;">francodarget</p></span>
-                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Email:</h3><p style="margin: 0px 0px 0px 10px;">franco@gmail.com</p></span>
-                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Birth date:</h3><p style="margin: 0px 0px 0px 10px;">02/02/2001</p></span>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">User:</h3><p style="margin: 0px 0px 0px 10px;"><%= resultado.name %> </p></span>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Email:</h3><p style="margin: 0px 0px 0px 10px;"><%= resultado.email %></p></span>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Birth date:</h3><p style="margin: 0px 0px 0px 10px;"><%= resultado.birthdate %></p></span>
             </div>
+        
         </div>
-
+       
         <div class="reviewsTitulo"><h1>Your Reviews</h1></div>
 
          <!-- Lista con todos los reviews -->

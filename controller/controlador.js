@@ -35,9 +35,8 @@ let controlador = {
       var idPelicula = req.query.idPelicula  //agarra el id de la pelicula de la url
       playitBD.resenas.findAll( //pide que busque en la bd tds las resenas de la pelicula con ese id
         {
-          where:{
-              idPelicula: idPelicula, // uno es mi nombre de la columna de mi bd, el otro es la var que cree arriba
-          }}
+          where:{ idPelicula: idPelicula}, // uno es mi nombre de la columna de mi bd, el otro es la var que cree arriba 
+        include:[{association: 'users'}] }
     
       )
     .then(function(resenas){
@@ -108,7 +107,7 @@ let controlador = {
         .then(resultado=>{  
           console.log(resultado)
           if(resultado != null){
-            res.redirect('/playit/myreviews')
+            res.render('myReviews', {resultado:resultado})
           }
           else{
             res.redirect('/playit/home')
