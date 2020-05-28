@@ -18,7 +18,7 @@ router.post('/registration', controlador.registration); // Agarra los datos que 
 
 router.get('/users', controlador.users); // Busca del objeto literal "controlador" el item usuarios
 
-router.post('/listadoUsuarios', controlador.usersPost) // Postea los usuarios en dicha ruta
+router.get('/listadoUsuarios', controlador.resultadoUsuarios) // Postea los usuarios en dicha ruta
 
 router.get('/usersdetails', controlador.userdetails); // Busca del objeto literal "controlador" el item usuerdetails
 
@@ -29,6 +29,10 @@ router.get('/login', controlador.login); // Busca del objeto literal "controlado
 router.post('/loginPost', controlador.loginPost) 
 
 router.post ('/resenas', controlador.nuevaResena);
+
+
+
+
 
 
 module.exports = router; // Exporta el archivo de rutas para ser requerido en otras 

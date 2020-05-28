@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css" />
+    <link rel="stylesheet" href="/stylesheets/detalle.css">
+    <title></title>
+
+  </head>
+  <body>
+
+    <!-- Header -->
+    <%-include('header')%>
+    <!-- Header -->
+    <% for (i=0; i< resultado.length; i++){ %>
+        <div class="usuario">
+            <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
+            <div class="nombre data">
+              <p><%= resultado[i].name %></p>
+            </div>
+            <div class="email data">
+              <p><%= resultado[i].email %></p>
+            </div>
+            <div class="nacimiento data">
+              <p><%= resultado[i].birthdate %></p>
+            </div>
+            <div class="detalles">
+              <a href="">+</a>
+            </div>
+          </div>
+          <% } %>
+
+    <!-- Footer-->
+<%-include('footer')%>
+<!-- Footer-->
+
+
+<script src="/javascripts/login.js" charset="utf-8"></script>
+<script rel="stylesheet" src="/javascripts/detalle.js"></script>
+<script src="/javascripts/uikit.min.js"></script>
+<script src="/javascripts/uikit-icons.min.js"></script>
+<script src="/javascripts/uikit-icons.js"></script>
+<script src="/javascripts/uikit.js"></script>
+  </body>
+</html>

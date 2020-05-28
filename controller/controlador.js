@@ -46,21 +46,25 @@ let controlador = {
     })
 
   },
-      users:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque los usuarios
-        res.render('users')
-      },
+    
+        
+       users:(req,res)=>{
+        res.render('users') 
+        },
 
-      usersPost: (req,res)=>{
-        var nombreUsuario = req.body.nombreUsuario // Agarra el input del buscador de usuarios que tiene de name "nombreUsuario" y lo guarda en una variable "nombreUsuario"
-        console.log(nombreUsuario) // Imprime en consola lo que puso el usuario
-        modulo.buscarPorName(nombreUsuario) // Chequea si el nombre insertado en el imput existe en la base de datos
-        .then(resultado =>{  
-          if(resultado != null){ // Si el resultado es distinto a null...
-            res.redirect('playit/users') // Imprime el resultado en consola
-          }else{ // Si no...
-            res.send('No existe') // Imprime que hubo un error
-          }
-        })
+      //usersPost: (req,res)=>{
+      //  var nombreUsuario = req.query.nombreUsuario // Agarra el input del buscador de usuarios que tiene de name "nombreUsuario" y lo guarda en una variable "nombreUsuario"
+      //  console.log(nombreUsuario) // Imprime en consola lo que puso el usuario
+        //modulo.buscarPorName(nombreUsuario) // Chequea si el nombre insertado en el imput existe en la base de datos
+        //.then(resultado =>{  
+          //console.log(resultado)
+          //if(resultado != null){ // Si el resultado es distinto a null...
+
+            //res.redirect('/playit/users') // Imprime el resultado en consola
+          //}else{ // Si no...
+            //res.send('No existe') // Imprime que hubo un error
+          //}
+       // })
         // modulo.buscarPorEmail(nombreUsuario)
         // .then(resultado =>{  
         //   if(resultado != null){ // Si el resultado es distinto a null...
@@ -69,7 +73,23 @@ let controlador = {
         //     res.send('No existe') // Imprime que hubo un error
         //   }
         // })
+        resultadoUsuarios: (req,res)=>{
+          var busqueda = req.query.nombreUsuario
+          playitBD.usuarios.findAll({
+            where:{
+              [OP.or]:[
+                {name:{[OP.like]: "%"+ busqueda + "%"}},
+                {email: {[OP.like]:"%"+ busqueda + "%"}}
+              ]
+            }
+          })
+          .then (function(resultado){
+            res.render("resultados", {resultado:resultado})
+          })
       },
+     // resultados:(req,res)=>{
+      //  res.render('resultados')
+     // },
 
       userdetails:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus datos
         res.render('userDetail')

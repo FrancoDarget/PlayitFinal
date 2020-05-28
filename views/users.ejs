@@ -26,7 +26,7 @@
         <nav class="uk-navbar-container" uk-navbar>
             <div class="uk-navbar-left">
                 <div class="uk-navbar-item" style="padding: 0px!important;">
-                    <form method="POST" action="/playit/listadoUsuarios" class="uk-search uk-search-navbar"> <!-- cambie action  -->
+                    <form method="GET" action="/playit/listadoUsuarios" class="uk-search uk-search-navbar"> <!-- cambie action  -->
                         <span uk-search-icon></span>
                         <input class="uk-search-input busqueda" type="search" placeholder="" name="nombreUsuario" style="background-color: white!important;">
                         <!-- <button type="submit" name="button">Buscar</button> -->
@@ -59,26 +59,9 @@
         </div>
         <!-- Item de usuario -->
 
-         <!-- Item de usuario -->
-    <% for(i=0; i<usuarios.length; i++){ %>
-    <div class="usuario">
-      <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
-      <div class="nombre data">
-        <p><%= usuarios[i].name %></p>   <!-- de la tabla usuarios agarra name -->
-      </div>
-      <div class="nacimiento data">
-        <p><%= usuarios[i].email %></p>  <!-- de la tabla usuarios agarra email -->
-      </div>
-      <div class="nacimiento data">
-        <p><%= usuarios[i].birthdate %></p>  <!-- de la tabla usuarios agarra birthdate -->
-      </div>
-      </div>
-      <div class="detalles">
-        <a href="">+</a>
-      </div>
-    </div>
-    <% } %>
-    <!-- Item de usuario -->
+        <!-- Item de usuario -->
+
+<!-- Item de usuario -->
 
 
         <!-- Item de usuario -->
