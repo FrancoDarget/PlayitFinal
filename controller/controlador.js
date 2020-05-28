@@ -107,7 +107,17 @@ let controlador = {
         .then(resultado=>{  
           console.log(resultado)
           if(resultado != null){
-            res.render('myReviews', {resultado:resultado})
+            playitBD.resenas.findAll({
+              where:[ {idUsuario: resultado.id }]
+            })
+            .then(resultsResenas=>{
+              console.log (resultsResenas)
+              res.render('myReviews', {resultado:resultado}, {resultsResenas:resultsResenas})
+            })
+            
+            
+
+            
           }
           else{
             res.redirect('/playit/home')

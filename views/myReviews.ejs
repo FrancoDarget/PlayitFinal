@@ -34,21 +34,23 @@
       <div class="listadoReviews"> 
 
         <!-- Item de review -->
+        <% for(let i=0; i<resultsResenas.length; i++){ %>
         <div class="item" style='border-top: 0px solid #f7f7f7!important;'>
-          <div class="review"><p>Review</p></div>
+          <div class="review"><p><%= resultsResenas[i].resena %></p></div>
           <div class="option">
-            <p>Score</p>
+            <p><%= resultsResenas[i].puntaje %></p>
           </div>
           <div class="option">
             <p>Edit</p>
           </div>
           <div class="option">
-            <p>Movie</p>
+            <p><%= resultsResenas[i].idPelicula %></p>
           </div>
           <div class="option">
             <p>Delete</p>
           </div>
         </div>
+        <% } %>
         <!-- Item de review -->
 
         <!-- Item de review -->
