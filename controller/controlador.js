@@ -112,7 +112,7 @@ let controlador = {
             })
             .then(resultsResenas=>{
               console.log (resultsResenas)
-              res.render('myReviews', {resultado:resultado}, {resultsResenas:resultsResenas})
+              res.render('myReviews', {resultado:resultado,resultsResenas:resultsResenas})
             })
             
             
