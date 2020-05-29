@@ -1,5 +1,6 @@
 let playitBD = require('../database/models/index')
 const OP = playitBD.Sequelize.Op; //para poder usar las funciones de sequelize
+const bcrypt = require('bcryptjs'); 
 
 let moduloLogin = {
     chequearUsuario: function (email) {
@@ -39,11 +40,18 @@ let moduloLogin = {
         return playitBD.usuarios.findOne({    // me dice si existe un usuario con ese mail y contrasena
             where: [{
                 email:email,
-                password: password,
+                
             }],
         })
         .then(results=>{
-            return results;
+            if(results && bcrypt.compareSync(
+                password,results.password)){
+                    return results;    
+                }
+                else {
+                    return null;
+                }
+ 
         })
     }
 }
