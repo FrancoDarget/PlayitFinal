@@ -30,7 +30,9 @@ router.post('/loginPost', controlador.loginPost)
 
 router.post ('/resenas', controlador.nuevaResena);
 
+router.get ('/edit', controlador.editar);
 
+router.post('/edit', controlador.editacionResena);
 
 
 

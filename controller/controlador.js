@@ -166,7 +166,35 @@ let controlador = {
         
       
 
+      },
+      editar: (req,res)=>{
+        //playitBD.resenas.findOne({
+         // where:[{
+         //   id: req.params.id
+         // }]
+         // .then(resultado=>{
+            res.render ('edit')
+         // })
+        //})
+        
+      
+      },
+      editacionResena: (req,res)=>{
+
+        modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
+        .then(resultado=>{
+          if(resultado!= null){
+            playitBD.resenas.findByPk({
+              where:[{idUsuario: resultado.usuario}]
+            })
+
+          }
+
+         })
+
       }
+
+
 
         
     }  

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css" />
+    <link rel="stylesheet" href="/stylesheets/detalle.css">
+    <title></title>
+
+  </head>
+  <body>
+
+    <!-- Header -->
+    <%-include('header')%>
+    <!-- Header -->
+
+
+    <h1>Edit</h1>
+    <form name= "resenas" method= "POST"  > <!-- le digo metodo y name p q funcione la ruta -->
+   
+      <div class="uk-margin">
+          <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: mail"></span>
+              <input class="uk-input  uk-form-width-large" type="text" name='email' placeholder="Email"> <!-- agrego name p el controlador -->
+  
+          </div>
+      </div>
+  
+      <div class="uk-margin">
+        <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+            <input class="uk-input uk-form-width-large" type="password" name='password' placeholder="Password">
+        </div>
+    </div>
+  
+    <div class="uk-margin">
+      <textarea class="uk-textarea uk-form-width-large" rows="5" name='comment' placeholder="Comment"></textarea>
+    </div>
+  
+  <div class="uk-margin">
+    <input class="uk-range uk-form-width-large" type="range" name="puntaje" value="1" min="1" max="10" step="1">
+  </div>
+  <p style="text-align: left;">1-10</p>
+  
+  
+  <button class="uk-button enviar">confirm</button>
+  
+  </form>
+
+
+
+
+    
+<!-- Footer-->
+<%-include('footer')%>
+<!-- Footer-->
+
+
+<script src="/javascripts/login.js" charset="utf-8"></script>
+<script rel="stylesheet" src="/javascripts/detalle.js"></script>
+<script src="/javascripts/uikit.min.js"></script>
+<script src="/javascripts/uikit-icons.min.js"></script>
+<script src="/javascripts/uikit-icons.js"></script>
+<script src="/javascripts/uikit.js"></script>
+  </body>
+</html>

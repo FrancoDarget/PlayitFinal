@@ -34,41 +34,43 @@
       <div class="listadoReviews"> 
 
         <!-- Item de review -->
-        <% for(let i=0; i<resultsResenas.length; i++){ %>
+        
         <div class="item" style='border-top: 0px solid #f7f7f7!important;'>
-          <div class="review"><p><%= resultsResenas[i].resena %></p></div>
+          <div class="review"><p>Resena</p></div>
           <div class="option">
-            <p><%= resultsResenas[i].puntaje %></p>
+            <p>Puntaje</p>
           </div>
           <div class="option">
             <p>Edit</p>
           </div>
           <div class="option">
-            <p><%= resultsResenas[i].idPelicula %></p>
+            <p>Pelicula</p>
           </div>
           <div class="option">
             <p>Delete</p>
           </div>
         </div>
-        <% } %>
+        
         <!-- Item de review -->
 
         <!-- Item de review -->
+        <% for(let i=0; i<resultsResenas.length; i++){ %> <!-- resultsResenas se lo mande a la vista en el controller, tiene la info del usuario logeado -->
         <div class="item">
-            <div class="review"><p>Me gusto mucho la pelicula...</p></div>
+            <div class="review"><p><%= resultsResenas[i].resena %></p></div> <!-- el texto de la resena -->
             <div class="option">
-              <p>8</p>
+              <p><%= resultsResenas[i].puntaje %></p> <!-- el puntaje de la resena -->
             </div>
             <div class="option">
-              <a href=""><span uk-icon="pencil"></span></a>
+              <a href="/playit/edit/"><span uk-icon="pencil"></span></a>
             </div>
             <div class="option">
-              <a href=""><span uk-icon="video-camera"></span></a>
+              <a href= <%= '/playit/detail?idPelicula=' +  resultsResenas[i].idPelicula %> > <span uk-icon="video-camera"></span></a> <!-- te redirige al detalle de la peli-->
             </div>
             <div class="option">
               <a href="">x</a>
             </div>
           </div>
+          <% } %>
           <!-- Item de review -->
 
           <!-- Item de review -->
