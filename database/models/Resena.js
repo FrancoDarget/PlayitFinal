@@ -8,6 +8,7 @@ module.exports=(sequelize,DataTypes)=>{
     
         puntaje: {type: DataTypes.INTEGER},
         createdAt: {type: DataTypes.DATE},
+        updatedAt: {type: DataTypes.DATE},
 
     }
     let config= {tableName:"resenas", // nombre de mi table en la base de datos

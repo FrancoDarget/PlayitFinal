@@ -83,7 +83,14 @@ let controlador = {
             }
           })
           .then (function(resultado){
-            res.render("resultados", {resultado:resultado})
+            if (resultado != null){
+            res.render("resultados", {resultado:resultado}) }
+            else if(resultado==null){
+              res.send('hay un error')
+
+            }
+              
+            
           })
       },
      // resultados:(req,res)=>{
@@ -149,7 +156,8 @@ let controlador = {
             puntaje: req.body.puntaje, // saca la info de lo q completa el usuario
             idUsuario: resultado.id, //lo saca de los datos que me trajo mi base de datos
             idPelicula: req.body.idPelicula, //idPelicula esta definida arriba de todo
-            createdAt: playitBD.sequelize.literal("CURRENT_DATE") // para que se guarde la fecha de hoy
+            createdAt: playitBD.sequelize.literal("CURRENT_DATE"),// para que se guarde la fecha de hoy
+            updatedAt: playitBD.sequelize.literal("CURRENT_DATE") ,
           }
           console.log (nuevaResena)
           playitBD.resenas.create(nuevaResena) //crea la resena en la tabla de la bd cn lo que escribio el usuario
@@ -187,6 +195,7 @@ let controlador = {
             playitBD.resenas.update({
               resena: req.body.comment,
               puntaje:req.body.puntaje,
+              updatedAt: playitBD.sequelize.literal("CURRENT_DATE") ,
             }, {
               where: {
                 id: req.params.id,
