@@ -168,14 +168,12 @@ let controlador = {
 
       },
       editar: (req,res)=>{
-        //playitBD.resenas.findOne({
-         // where:[{
-         //   id: req.params.id
-         // }]
-         // .then(resultado=>{
-            res.render ('edit')
-         // })
-        //})
+          playitBD.resenas.findByPk(req.params.id)
+           
+           .then(resultado=>{
+              res.render ('edit',{resultado:resultado})
+           })
+          
         
       
       },
@@ -184,9 +182,51 @@ let controlador = {
         modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
         .then(resultado=>{
           if(resultado!= null){
-            playitBD.resenas.findByPk({
-              where:[{idUsuario: resultado.usuario}]
+            //delete req.body.email
+            //delete req.body.password
+            playitBD.resenas.update({
+              resena: req.body.comment,
+              puntaje:req.body.puntaje,
+            }, {
+              where: {
+                id: req.params.id,
+              }
             })
+            .then( r => {
+              return res.redirect('/playit/login')
+            })
+
+            .catch( e => console.log(e))
+
+          }
+
+         })
+
+      },
+      delete: (req,res)=>{
+        playitBD.resenas.findByPk(req.params.id)
+           
+           .then(resultado=>{
+              res.render ('delete',{resultado:resultado})
+           })
+          
+
+      },
+      deletePost: (req,res)=>{
+        modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
+        .then(resultado=>{
+          if(resultado!= null){
+            
+            playitBD.resenas.destroy( {
+              where: {
+                id: req.params.id,
+              }
+            })
+            .then( r => {
+              res.redirect('/playit/login')
+            })
+
+            .catch( e => console.log(e))
 
           }
 

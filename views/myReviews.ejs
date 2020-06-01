@@ -61,13 +61,13 @@
               <p><%= resultsResenas[i].puntaje %></p> <!-- el puntaje de la resena -->
             </div>
             <div class="option">
-              <a href="/playit/edit/"><span uk-icon="pencil"></span></a>
+              <a href= <%= '/playit/edit/'+  resultsResenas[i].id %>><span uk-icon="pencil"></span></a>
             </div>
             <div class="option">
               <a href= <%= '/playit/detail?idPelicula=' +  resultsResenas[i].idPelicula %> > <span uk-icon="video-camera"></span></a> <!-- te redirige al detalle de la peli-->
             </div>
             <div class="option">
-              <a href="">x</a>
+              <a href=<%= '/playit/delete/'+  resultsResenas[i].id %>>x</a>
             </div>
           </div>
           <% } %>

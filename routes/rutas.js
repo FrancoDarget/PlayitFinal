@@ -30,10 +30,13 @@ router.post('/loginPost', controlador.loginPost)
 
 router.post ('/resenas', controlador.nuevaResena);
 
-router.get ('/edit', controlador.editar);
+router.get ('/edit/:id', controlador.editar);
 
-router.post('/edit', controlador.editacionResena);
+router.post('/edit/:id', controlador.editacionResena);
 
+router.get('/delete/:id', controlador.delete);
+
+router.post('/delete/:id', controlador.deletePost)
 
 
 

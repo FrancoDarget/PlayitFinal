@@ -14,8 +14,8 @@
     <!-- Header -->
 
 
-    <h1>Edit</h1>
-    <form name= "resenas" method= "POST" action="/playit/edit/<%=resultado.id%>" > <!-- le digo metodo y name p q funcione la ruta -->
+    <h1>Delete</h1>
+    <form name= "resenas" method= "POST" action="/playit/delete/<%=resultado.id%>" > <!-- le digo metodo y name p q funcione la ruta -->
    
       <div class="uk-margin">
           <div class="uk-inline">
@@ -32,17 +32,12 @@
         </div>
     </div>
   
-    <div class="uk-margin">
-      <textarea class="uk-textarea uk-form-width-large" rows="5" name='comment' placeholder="Comment"><%=resultado.resena%></textarea>
-    </div>
-  
-  <div class="uk-margin">
-    <input class="uk-range uk-form-width-large" type="range" name="puntaje" value="1" min="1" max="10" step="1">
-  </div>
-  <p style="text-align: left;">1-10</p>
+   
   
   
-  <button class="uk-button enviar">confirm</button>
+  
+  
+  <button class="uk-button enviar">DELETE</button>
   
   </form>
 
