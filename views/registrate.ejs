@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Playit</title>
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css" />
+    <link rel="stylesheet" href="/stylesheets/header.css" />
+    <link rel="stylesheet" href="/stylesheets/registrate.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+  </head>
+  <body>
+   
+   <!-- Header -->
+      <%-include('header')%>
+   <!-- Header -->
+   
+   <div class="contenedorPadre">
+
+     <div class="campoIzquierdo">
+       <div class="imagen">  
+         <img src="/images/pochoclos2.png" alt="">
+      </div>
+        <h1>Proud for 20,000 community members</h1>
+        <p>We arge growing our community daily with lots of happy customers with happy face.</p>
+     </div>
+
+      <!-- ESTE ES EL FORMULARIO DE LOGIN -->
+     <div class="campoDerecho">  <!-- Contenedor de todo el login -->
+      <div class="dataDerecha">
+        <h1>Playit</h1>
+        <h2>Join our community</h2>  <!-- Titulo Login -->
+        <p>More than 10 million users are enjoying our movies</p>
+        <div class="formularioLogin">
+          <form id="formlogin" name="login" method='POST' name="login" action='/playit/loginPost'> <!-- AGREGAR METHOD Y ACTION, ESTE ES EL FORMULARIO -->
+
+            <div class="uk-margin">
+              <div class="uk-inline uk-form-width-large">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input" type="text" name='user' id="name">
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <div class="uk-inline uk-form-width-large">
+                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                <input class="uk-input" type="text" id="email" name='email'>
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <div class="uk-inline uk-form-width-large">
+                <span class="uk-form-icon" uk-icon="icon: calendar"></span>
+                <input class="uk-input" type="date" id="date" name="date"> <!-- Input de fecha -->
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <div class="uk-inline uk-form-width-large">
+                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                <input class="uk-input" type="password" id="password" name="password"> <!-- Input de password -->
+              </div>
+            </div>
+
+            <div class="ultimaParte">
+              <p>I agree with the <a href='#'>Terms and conditions</a></p>
+
+              <button  type="submit" name="botonLogin">Create Account</button>
+            </div>
+
+        </form>
+      </div>
+
+      </div>
+    </div>
+<!-- ESTE ES EL FORMULARIO DE LOGIN -->
+   </div>
+
+<!-- Footer-->
+<%-include('footer')%>
+<!-- Footer-->
+
+<script src="/javascripts/uikit.min.js"></script>
+<script src="/javascripts/uikit-icons.min.js"></script>
+<script src="/javascripts/uikit-icons.js"></script>
+<script src="/javascripts/uikit.js"></script>
+<script rel="stylesheet" src="/javascripts/home.js"></script>
+<script src="/javascripts/login.js" charset="utf-8"></script>
+  </body>
+</html>
