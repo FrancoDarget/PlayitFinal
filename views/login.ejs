@@ -5,6 +5,7 @@
     <title>Playit</title>
     <link rel="stylesheet" href="/stylesheets/uikit.min.css" />
     <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
   </head>
   <body>
@@ -13,41 +14,51 @@
       <%-include('header')%>
    <!-- Header -->
 
- <!-- ESTE ES EL FORMULARIO DE LOGIN -->
- <div class="Contenedorlog">  <!-- Contenedor de todo el login -->
-    <div class="cajaLog">
-    <div class="cerrarLog">  <!-- Boton para cerrar el login -->
-      x
+   <div class="contenedorPadre">
+
+    <div class="campoIzquierdo">
+      <div class="imagen">  
+        <img src="/images/personas.png" alt="">
+     </div>
+       <h1>Proud for 20,000 community members</h1>
+       <p>We arge growing our community daily with lots of happy customers with happy face.</p>
     </div>
-    <span style="font-size: 5rem;">  <!-- Icono del usuairo -->
-      <i class="far fa-user"></i>
-    </span>
-    <p>Login</p>  <!-- Titulo Login -->
-    <div class="formularioLogin">
-      <form id="formlogin" name="login" method='POST' name="login" action='/playit/loginPost'> <!-- AGREGAR METHOD Y ACTION, ESTE ES EL FORMULARIO -->
 
-        <div class="uk-margin">
-          <div class="uk-inline uk-width-2-3">
-            <span class="uk-form-icon" uk-icon="icon: user"></span>
-            <input class="uk-input" type="email" name='email' id="email">
+     <!-- ESTE ES EL FORMULARIO DE LOGIN -->
+    <div class="campoDerecho">  <!-- Contenedor de todo el login -->
+     <div class="dataDerecha">
+       <h1>Playit</h1>
+       <h2>Welcome Back</h2>  <!-- Titulo Login -->
+       <p>More than 10 million users are enjoying our movies</p>
+       <div class="formularioLogin">
+        <form id="formlogin" name="login" method='POST' name="login" action='/playit/loginPost'> <!-- AGREGAR METHOD Y ACTION, ESTE ES EL FORMULARIO -->
+
+          <div class="uk-margin">
+            <div class="uk-inline uk-form-width-large">
+              <span class="uk-form-icon" uk-icon="icon: user"></span>
+              <input class="uk-input" type="email" name='email' id="email">
+            </div>
           </div>
-        </div>
 
-        <div class="uk-margin">
-          <div class="uk-inline uk-width-2-3">
-            <span class="uk-form-icon" uk-icon="icon: lock"></span>
-            <input class="uk-input" type="password" id="password" name="password"> <!-- Input de password -->
+          <div class="uk-margin">
+            <div class="uk-inline uk-form-width-large">
+              <span class="uk-form-icon" uk-icon="icon: lock"></span>
+              <input class="uk-input" type="password" id="password" name="password"> <!-- Input de password -->
+            </div>
           </div>
-        </div>
 
-        <button  type="submit" name="botonLogin">Login</button>
+           <div class="ultimaParte">
+            <button  type="submit" name="botonLogin">Login</button>
+           </div>
 
-      </form>
+       </form>
+     </div>
+
+     </div>
     </div>
+<!-- ESTE ES EL FORMULARIO DE LOGIN -->
   </div>
-</div>
-  <!-- ESTE ES EL FORMULARIO DE LOGIN -->
-
+  
 <!-- Footer-->
 <%-include('footer')%>
 <!-- Footer-->
