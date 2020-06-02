@@ -83,9 +83,10 @@ let controlador = {
             }
           })
           .then (function(resultado){
-            if (resultado != null){
+            console.log(resultado)
+            if (resultado.length >0 ){
             res.render("resultados", {resultado:resultado}) }
-            else if(resultado==null){
+            else {
               res.send('hay un error')
 
             }
