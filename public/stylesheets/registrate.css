@@ -1,109 +1,109 @@
 body{
-    background-color: white;
-    margin: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    font-family: Helvetica, Arial, sans-serif;
-  }
-
-  .contenedorPadre{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-  }
-
-  .campoIzquierdo{
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background-color: #1d1d1d;
-    color: white;
-    padding-left: 50px;
-    padding-bottom: 100px;
-  }
-
-  .campoIzquierdo img{
-      /* max-width: 400px; */
-      max-width: 600px;
-  }
-
-  .imagen{
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      padding-left: 5px;
-      margin-bottom: 100px;
-  }
-
-  .campoIzquierdo h1{
-      font-size: 30px;
-      color: whitesmoke;
-      margin: 0px;
-  }
-
-  .campoIzquierdo p{
-    font-size: 15px;
-    letter-spacing: 1px;
-    margin-top: 5px;
+  background-color: white;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-  .campoDerecho{
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .dataDerecha{
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-  }
-
-  .dataDerecha h1{
-    font-size: 50px;
-    color: black;
-    font-weight: bold;
-    margin-bottom: 30px;
+.contenedorPadre{
+  width: 100%;
+  height: 100vh;
+  display: flex;
 }
 
-.dataDerecha h2{
+.campoIzquierdo{
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #1d1d1d;
+  color: white;
+  padding-left: 50px;
+  padding-bottom: 100px;
+}
+
+.campoIzquierdo img{
+    /* max-width: 400px; */
+    max-width: 600px;
+}
+
+.imagen{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5px;
+    margin-bottom: 100px;
+}
+
+.campoIzquierdo h1{
     font-size: 30px;
-    color: black;
-    font-weight: bold;
+    color: whitesmoke;
     margin: 0px;
 }
 
-.dataDerecha p{
-    margin-top: 0px;
-    margin-bottom: 20px;
+.campoIzquierdo p{
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: 5px;
 }
 
-  .dataDerecha img{
-    max-width: 50px;
+.campoDerecho{
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.ultimaParte{
+.dataDerecha{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
+}
+
+.dataDerecha h1{
+  font-size: 50px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.dataDerecha h2{
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.dataDerecha p{
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.dataDerecha img{
+  max-width: 50px;
+}
+
+.ultimaParte{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .ultimaParte button{
-    background-color: #ff0000;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 10px;
-    border-radius: 5px;
-    border: 0px solid white;
+  background-color: #ff0000;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0px solid white;
 }
 
 .ultimaParte button:hover{
-    background-color: #1d1d1d;
-    padding: 13px;
+  background-color: #1d1d1d;
+  padding: 13px;
 }

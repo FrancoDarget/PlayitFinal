@@ -102,6 +102,10 @@ let controlador = {
         res.render('userDetail')
       },
 
+      registrate:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque registrarse
+        res.render('registrate')
+      },
+
       myReviews:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus reviews
         res.render('myReviews')
       },

@@ -16,6 +16,8 @@ router.get('/detail', controlador.detail); // Busca del objeto literal "controla
 
 router.post('/registration', controlador.registration); // Agarra los datos que el usuario llena en el registration
 
+router.get('/registrate', controlador.registrate); // Busca la pagina registrate
+
 router.get('/users', controlador.users); // Busca del objeto literal "controlador" el item usuarios
 
 router.get('/listadoUsuarios', controlador.resultadoUsuarios) // Postea los usuarios en dicha ruta
