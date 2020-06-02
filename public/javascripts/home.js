@@ -2,13 +2,13 @@ window.addEventListener('load' ,function(){
 
 /* Header y Footer */
 
-document.getElementById('user').addEventListener('click', function(){
-  document.querySelector('.bg-modal').style.display = 'flex'
-})
+// document.getElementById('user').addEventListener('click', function(){
+//   document.querySelector('.bg-modal').style.display = 'flex'
+// })
 
-document.getElementById('user2').addEventListener('click', function(){
-  document.querySelector('.bg-modal').style.display = 'flex'
-})
+// document.getElementById('user2').addEventListener('click', function(){
+//   document.querySelector('.bg-modal').style.display = 'flex'
+// })
 
 document.querySelector('.close').addEventListener('click', function(){
   document.querySelector('.bg-modal').style.display = 'none'

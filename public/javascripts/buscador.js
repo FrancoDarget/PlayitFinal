@@ -5,9 +5,9 @@ window.addEventListener('load' ,function(){
 
 
 
-  document.getElementById('user2').addEventListener('click', function(){
-    document.querySelector('.bg-modal').style.display = 'flex'
-  })
+  // document.getElementById('user2').addEventListener('click', function(){
+  //   document.querySelector('.bg-modal').style.display = 'flex'
+  // })
 
   document.querySelector('.close').addEventListener('click', function(){
     document.querySelector('.bg-modal').style.display = 'none'
