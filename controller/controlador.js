@@ -132,7 +132,7 @@ let controlador = {
             
           }
           else{
-            res.redirect('/playit/home')
+            res.redirect('/playit/registrate')
           }
         })
 
