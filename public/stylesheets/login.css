@@ -27,7 +27,7 @@ body{
   
   .campoIzquierdo img{
       /* max-width: 400px; */
-      max-width: 70%;
+      max-width: 35vw;
   }
   
   .imagen{
@@ -93,6 +93,14 @@ body{
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .recordarme{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: -20px;
+
+  }
   
   .ultimaParte button{
     background-color: #ff0000;
@@ -101,6 +109,7 @@ body{
     padding: 10px;
     border-radius: 5px;
     border: 0px solid white;
+    margin-top: 15px;
   }
   
   .ultimaParte button:hover{

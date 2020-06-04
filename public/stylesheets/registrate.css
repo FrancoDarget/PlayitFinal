@@ -27,7 +27,7 @@ body{
 
 .campoIzquierdo img{
     /* max-width: 400px; */
-    max-width: 600px;
+    max-width: 60vh;
 }
 
 .imagen{
