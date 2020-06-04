@@ -6,6 +6,8 @@
         birthdate: {type: DataTypes.DATE},
         email: {type: DataTypes.STRING},
         password: {type: DataTypes.STRING},
+        generoFavorito: {type: DataTypes.STRING},
+        peliculaFavorita: {type: DataTypes.STRING},
 
     }
     let config= {tableName:"usuarios", //el nombre de mi tabla en la base de datos

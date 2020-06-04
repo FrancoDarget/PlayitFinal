@@ -99,7 +99,9 @@ let controlador = {
      // },
 
       userdetails:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus datos
-        res.render('userDetail')
+        playitBD.usuarios.findByPk (req.params.id)
+        .then(resultado=>{
+        res.render('userDetail', {resultado:resultado})})
       },
 
       registrate:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque registrarse
@@ -107,7 +109,21 @@ let controlador = {
       },
 
       myReviews:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus reviews
-        res.render('myReviews')
+        if(req.session.usuarioLogeado){
+          modulo.buscarPorEmail(req.session.usuarioLogeado)
+          .then(resultado=>{
+            console.log(resultado)
+            playitBD.resenas.findAll({
+                where:[ {idUsuario: resultado.id }]
+              })
+             .then(resultsResenas=>{
+              console.log (resultsResenas)
+               res.render('myReviews', {resultado:resultado,resultsResenas:resultsResenas})
+              })
+
+          })
+        }
+        
       },
 
       login:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus reviews
@@ -119,13 +135,21 @@ let controlador = {
         .then(resultado=>{  
           console.log(resultado)
           if(resultado != null){
-            playitBD.resenas.findAll({
-              where:[ {idUsuario: resultado.id }]
-            })
-            .then(resultsResenas=>{
-              console.log (resultsResenas)
-              res.render('myReviews', {resultado:resultado,resultsResenas:resultsResenas})
-            })
+            req.session.usuarioLogeado = req.body.email
+            if (req.body.recordame != undefined) {
+              res.cookie('recordame', req.session.usuarioLogeado, {
+                maxAge: 300000
+                //! Esto se guarda por 5 minutos
+              });
+            }
+            res.redirect('/playit/myreviews')
+           // playitBD.resenas.findAll({
+            //  where:[ {idUsuario: resultado.id }]
+           // })
+           // .then(resultsResenas=>{
+            //  console.log (resultsResenas)
+           //   res.render('myReviews', {resultado:resultado,resultsResenas:resultsResenas})
+           // })
             
             
 
@@ -137,6 +161,11 @@ let controlador = {
         })
 
       },
+      logout: function (req, res) {
+        req.session.destroy();
+        res.redirect('/playit/home');
+      },
+    
     registration: (req,res)=>{ //ESTO ES REGISTRACION
         // Estoy creando un nuevo usuario en la base de datos con la informacion que el usuario completo en el registration. 
         let passEncriptada = bcrypt.hashSync(req.body.password, 10); // Incripta los datos para usar en la pass
@@ -145,10 +174,15 @@ let controlador = {
                email: req.body.email,
                password:passEncriptada, // Guarda la password encriptada.
                birthdate: req.body.date,
+               generoFavorito: req.body.generoFavorito,
+               peliculaFavorita: req.body.peliculaFavorita,
            }
            playitBD.usuarios.create(usuario) //estoy creando usuarios(let dentro de registration) en mi base de datos (playiBD esta definida arriba)
            res.redirect("/playit/home")   //cuando apretas submit nos lleva a home
      
+        },
+        generoFavorito: function(req,res){
+          var generoFavorito= req.body.generoFavorito
         },
       nuevaResena: (req,res)  =>{
         modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
@@ -213,6 +247,9 @@ let controlador = {
             .catch( e => console.log(e))
 
           }
+          else{
+            res.send('hay un error')
+          }
 
          })
 
@@ -242,6 +279,9 @@ let controlador = {
 
             .catch( e => console.log(e))
 
+          }
+          else{
+            res.send('hay un error')
           }
 
          })

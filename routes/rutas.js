@@ -22,7 +22,11 @@ router.get('/users', controlador.users); // Busca del objeto literal "controlado
 
 router.get('/listadoUsuarios', controlador.resultadoUsuarios) // Postea los usuarios en dicha ruta
 
-router.get('/usersdetails', controlador.userdetails); // Busca del objeto literal "controlador" el item usuerdetails
+router.get('/usersdetails/:id', controlador.userdetails); // Busca del objeto literal "controlador" el item usuerdetails
+
+router.post('/registrate', controlador.generoFavorito);
+
+router.get('/logout', controlador.logout);
 
 router.get('/myreviews', controlador.myReviews); // Busca del objeto literal "controlador" el item myReviews
 

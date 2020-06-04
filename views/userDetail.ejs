@@ -20,10 +20,12 @@
         <div class="perfil">
             <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
             <div class="datos">
-                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">User:</h3><p style="margin: 0px 0px 0px 10px;">francodarget</p></span>
-                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Email:</h3><p style="margin: 0px 0px 0px 10px;">franco@gmail.com</p></span>
-                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Birth date:</h3><p style="margin: 0px 0px 0px 10px;">02/02/2001</p></span>
-            </div>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">User:</h3><p style="margin: 0px 0px 0px 10px;"><%= resultado.name %></p></span>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Email:</h3><p style="margin: 0px 0px 0px 10px;"><%=resultado.email%></p></span>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Birth date:</h3><p style="margin: 0px 0px 0px 10px;"><%=resultado.birthdate%></p></span>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Favorite Genre:</h3><a href="/playit/genre"><p style="margin: 0px 0px 0px 10px;"><%=resultado.generoFavorito%></p></a></span>
+                <span style="display: flex; align-items: center; margin-top: 10px;"><h3 style="margin: 0px;">Favorite Movie:</h3><a href=<%= '/playit/search?busqueda=' +  resultado.peliculaFavorita %><p style="margin: 0px 0px 0px 10px;"><%=resultado.peliculaFavorita%></p></a></span> 
+              </div>
         </div>
 
        
