@@ -24,9 +24,7 @@ document.querySelector('.cerrar').addEventListener('click', function(){
   document.getElementById('hamburguer').style.display = 'flex'
 })
 
-document.getElementById('logoutbutton').addEventListener('click', function(){
-  document.querySelector('.paginalogout').style.display = 'flex'
-})
+
 
 document.getElementById('nobutton').addEventListener('click', function(){
   document.querySelector('.paginalogout').style.display = 'none'

@@ -4,6 +4,7 @@ body {
     align-items: center;
     background-color: #f7f7f7;
     width: 100%;
+    
     }
     
     /* Header */
@@ -235,10 +236,12 @@ body {
     /* Datos del usuario */
     .perfil{
         display: flex;
-        margin-top: 50px;
+        
         width: 80%;
         justify-content: center;
         align-items: center;
+        height: 40vh;
+        margin-bottom: 100px;
     }
 
     .imagen{
