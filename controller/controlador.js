@@ -123,14 +123,7 @@ let controlador = {
               });
             }
             res.redirect('/playit/myreviews')
-           // playitBD.resenas.findAll({
-            //  where:[ {idUsuario: resultado.id }]
-           // })
-           // .then(resultsResenas=>{
-            //  console.log (resultsResenas)
-           //   res.render('myReviews', {resultado:resultado,resultsResenas:resultsResenas})
-           // })
-            
+           
             
 
             
@@ -159,7 +152,7 @@ let controlador = {
                peliculaFavorita: req.body.peliculaFavorita,
            }
            playitBD.usuarios.create(usuario) //estoy creando usuarios(let dentro de registration) en mi base de datos (playiBD esta definida arriba)
-           res.redirect("/playit/home")   //cuando apretas submit nos lleva a home
+           res.redirect("/playit/login")   //cuando apretas submit nos lleva a log in
      
         },
         generoFavorito: function(req,res){
@@ -167,7 +160,7 @@ let controlador = {
         },
       nuevaResena: (req,res)  =>{
         if(req.session.usuarioLogeado){
-          modulo.buscarPorEmail(req.session.usuarioLogeado)  //valida lo que el usuario completa en el form
+          modulo.buscarPorEmail(req.session.usuarioLogeado)  //\busca un usuario por email en la bd (del usuario que ya esta logueado)
           .then(resultado=>{  
           console.log(resultado) //me muestra los datos de la bd del usuario
         
@@ -198,7 +191,7 @@ let controlador = {
 
       },
       editar: (req,res)=>{
-       modulo.buscarPorEmail(req.session.usuarioLogeado) // 
+       modulo.buscarPorEmail(req.session.usuarioLogeado) 
        .then(results=>{
          var dataUsuario= results
          playitBD.resenas.findByPk(req.params.id)
@@ -216,12 +209,7 @@ let controlador = {
       },
       editacionResena: (req,res)=>{
 
-        // if(req.session.usuarioLogeado){
-        //   modulo.buscarPorEmail(req.session.usuarioLogeado)   //valida lo que el usuario completa en el form
-        // .then(resultado=>{
-        //   if(resultado!= null){
-            //delete req.body.email
-            //delete req.body.password
+     
             playitBD.resenas.update({
               resena: req.body.comment,
               puntaje:req.body.puntaje,
@@ -238,15 +226,10 @@ let controlador = {
             .catch( e => console.log(e))
 
           },
-          // else{
-          //   res.send('hay un error')
-          // }
-
-        //  })
-
-     // },
+          
+         
       delete: (req,res)=>{
-        modulo.buscarPorEmail(req.session.usuarioLogeado) // 
+        modulo.buscarPorEmail(req.session.usuarioLogeado) 
         .then(results=>{
           var dataUsuario= results
           playitBD.resenas.findByPk(req.params.id)
@@ -269,9 +252,7 @@ let controlador = {
            
         
       deletePost: (req,res)=>{
-        // modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
-        // .then(resultado=>{
-        //   if(resultado!= null){ 
+        
           
          playitBD.resenas.destroy( {
               where: {
