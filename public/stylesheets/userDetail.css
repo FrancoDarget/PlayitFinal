@@ -312,6 +312,55 @@ body {
     text-align: center;
 }
 
+.ordenReviews{
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.listado{
+  width: 30%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listado a{
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-shadow: black 1px 1px;
+}
+
+.listado a:hover{
+  color: whitesmoke;
+  font-size: 30px;
+}
+
+.highest{
+  background-image: url("../images/tira.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.worst{
+  background-image: url("../images/baldePochoclos.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.latest{
+  background-image: url("../images/controlTele.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 
 /* Item Usuario */
@@ -333,9 +382,8 @@ body {
     align-items: center;
     padding: 0;
     justify-content: space-between;
-    margin-top: 5rem;
+    margin-top: 9rem;
     padding-bottom: 0px;
-    margin-top: 150rem;
   }
   
   .footer img{
