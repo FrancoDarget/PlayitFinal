@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/userDetail.css">
+    <link rel="stylesheet" href="/stylesheets/uikit-rtl.css">
+    <link rel="stylesheet" href="/stylesheets/uikit-rtl.min.css">
+    <link rel="stylesheet" href="/stylesheets/uikit.css">
+    <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+  </head>
+  <body>
+
+    <!-- Header -->
+    <%-include('header')%>
+    <!-- Header -->
+
+    <div class="titulo">
+        <h1> Highest Rated Reviews</h1>
+        
+      </div>
+      <div class="item" style='border-top: 0px solid #f7f7f7!important;'>
+        <div class="review"><p>Resena</p></div>
+        <div class="option">
+          <p>Puntaje</p>
+        </div>
+        
+        <div class="option">
+          <p>Movie</p>
+        </div>
+        
+      </div>
+
+   
+
+      <% for(let i=0; i<resultados.length; i++){ %> <!-- resultsResenas se lo mande a la vista en el controller, tiene la info del usuario logeado -->
+        <div class="item">
+            <div class="review"><p><%= resultados[i].resena %></p></div> <!-- el texto de la resena -->
+            <div class="option">
+              <p><%= resultados[i].puntaje %></p> <!-- el puntaje de la resena -->
+            </div>
+            
+            <div class="option">
+              <a href= <%= '/playit/detail?idPelicula=' +  resultados[i].idPelicula %> > <span uk-icon="video-camera"></span></a> <!-- te redirige al detalle de la peli-->
+            </div>
+            
+          </div>
+          <% } %>
+
+
+
+
+
+
+    <!-- Footer-->
+    <%-include('footer')%>
+    <!-- Footer-->
+
+
+    <script src="/javascripts/login.js" charset="utf-8"></script>
+    <script rel="stylesheet" src="/javascripts/detalle.js"></script>
+    <script src="/javascripts/uikit.min.js"></script>
+    <script src="/javascripts/uikit-icons.min.js"></script>
+    <script src="/javascripts/uikit-icons.js"></script>
+    <script src="/javascripts/uikit.js"></script>
+  </body>
+</html>

@@ -156,7 +156,8 @@ let controlador = {
             
           }
           else{
-            res.redirect('/playit/registrate')
+            
+              res.redirect('/playit/registrate')
           }
         })
 
@@ -185,8 +186,9 @@ let controlador = {
           var generoFavorito= req.body.generoFavorito
         },
       nuevaResena: (req,res)  =>{
-        modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
-        .then(resultado=>{  
+        if(req.session.usuarioLogeado){
+          modulo.buscarPorEmail(req.session.usuarioLogeado)  //valida lo que el usuario completa en el form
+          .then(resultado=>{  
           console.log(resultado) //me muestra los datos de la bd del usuario
         
           if(resultado != null){ // si existe un resultado, crea la resena. Resultado esta definido en el mdulo de login
@@ -210,25 +212,34 @@ let controlador = {
           }
           
         })
+      }
         
       
 
       },
       editar: (req,res)=>{
-          playitBD.resenas.findByPk(req.params.id)
+       modulo.buscarPorEmail(req.session.usuarioLogeado) // 
+       .then(results=>{
+         var dataUsuario= results
+         playitBD.resenas.findByPk(req.params.id)
            
-           .then(resultado=>{
-              res.render ('edit',{resultado:resultado})
-           })
+         .then(resultado=>{
+           if(resultado.idUsuario == dataUsuario.id)
+            res.render ('edit',{resultado:resultado})
+         })
+       })
+          
+      
           
         
       
       },
       editacionResena: (req,res)=>{
 
-        modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
-        .then(resultado=>{
-          if(resultado!= null){
+        // if(req.session.usuarioLogeado){
+        //   modulo.buscarPorEmail(req.session.usuarioLogeado)   //valida lo que el usuario completa en el form
+        // .then(resultado=>{
+        //   if(resultado!= null){
             //delete req.body.email
             //delete req.body.password
             playitBD.resenas.update({
@@ -241,52 +252,98 @@ let controlador = {
               }
             })
             .then( r => {
-              return res.redirect('/playit/login')
+              return res.redirect('/playit/myreviews')
             })
 
             .catch( e => console.log(e))
 
-          }
-          else{
-            res.send('hay un error')
-          }
+          },
+          // else{
+          //   res.send('hay un error')
+          // }
 
-         })
+        //  })
 
-      },
+     // },
       delete: (req,res)=>{
-        playitBD.resenas.findByPk(req.params.id)
-           
-           .then(resultado=>{
-              res.render ('delete',{resultado:resultado})
-           })
-          
-
-      },
-      deletePost: (req,res)=>{
-        modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
-        .then(resultado=>{
-          if(resultado!= null){
+        modulo.buscarPorEmail(req.session.usuarioLogeado) // 
+        .then(results=>{
+          var dataUsuario= results
+          playitBD.resenas.findByPk(req.params.id)
             
-            playitBD.resenas.destroy( {
+          .then(resultado=>{
+            if(resultado.idUsuario == dataUsuario.id)
+             res.render ('delete',{resultado:resultado})
+          })
+        })
+           
+       
+           
+         
+       
+       },
+        
+
+        
+    
+           
+        
+      deletePost: (req,res)=>{
+        // modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
+        // .then(resultado=>{
+        //   if(resultado!= null){ 
+          
+         playitBD.resenas.destroy( {
               where: {
                 id: req.params.id,
               }
             })
             .then( r => {
-              res.redirect('/playit/login')
+              res.redirect('/playit/myreviews')
             })
 
             .catch( e => console.log(e))
 
-          }
-          else{
-            res.send('hay un error')
-          }
+         
 
-         })
+      },
+      resenasOrdenadas:(req,res)=>{
+        res.render('resenasOrdenadas')
 
+      },
+      masPuntuadas: (req,res)=>{
+        playitBD.resenas.findAll(
+          {order:[['puntaje', 'DESC']],
+          limit: 15}
+        )
+        .then(resultados=>{
+          res.render('masPuntuadas', {resultados:resultados})
+        })
+      }, 
+      peorPuntuadas: (req,res)=>{
+        playitBD.resenas.findAll(
+          {order:[['puntaje', 'ASC']],
+          limit: 15}
+        )
+        .then(resultados=>{
+          res.render('peorPuntuadas', {resultados:resultados})
+        })
+      },
+      latestReviews: (req,res)=>{
+        playitBD.resenas.findAll(
+          {order:[['updatedAt', 'DESC']],
+          limit: 15}
+        )
+        .then(resultados=>{
+          res.render('latestReviews', {resultados:resultados})
+        })
       }
+
+          
+
+        
+
+      
 
 
 

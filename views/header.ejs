@@ -12,7 +12,12 @@
       <a href="/playit/genre#movies">Movies</a> <!-- Link a la pagina Peliculas -->
       <a href="/playit/users">Users</a> <!-- Link a la pagina Users -->
       <a href="/playit/search">Search</a> <!-- Link a la pagina Busqueda -->
+      <a href="/playit/resenasOrdenadas">Reviews</a>
       <a class="favorite" style="display: none;" href="favorite">Favorite</a> <!-- Link a la pagina Favoritos -->
+      <% if(usuarioLogeado != null ){ %>
+        <a href="/playit/myreviews">My Reviews</a>
+        <% } %>
+
     </div>
 
     <div class="login"> <!-- Dentro del div esta el link para logearse y el buscador -->
@@ -24,7 +29,7 @@
 
       <a id="botonLogin" style="margin-right: 15px;" href="login">LOGIN</a>
       <%} %>
-
+     
       <!-- <span id="user2">
         <i class="fas fa-user"></i>
         <p style="display:none; font-size: 20px;"></p>

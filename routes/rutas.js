@@ -42,8 +42,15 @@ router.post('/edit/:id', controlador.editacionResena);
 
 router.get('/delete/:id', controlador.delete);
 
-router.post('/delete/:id', controlador.deletePost)
+router.post('/delete/:id', controlador.deletePost);
 
+router.get('/resenasOrdenadas', controlador.resenasOrdenadas);
+
+router.get ('/resenasOrdenadas/masPuntuadas', controlador.masPuntuadas); 
+
+router.get ('/resenasOrdenadas/peorPuntuadas', controlador.peorPuntuadas); 
+
+router.get ('/resenasOrdenadas/latestReviews', controlador.latestReviews); 
 
 
 module.exports = router; // Exporta el archivo de rutas para ser requerido en otras 

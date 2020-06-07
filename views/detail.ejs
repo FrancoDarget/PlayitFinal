@@ -92,25 +92,28 @@
         </div>
     </li>
 </ul>
+<% if(usuarioLogeado != null ){ %>
+ 
 
 <div class="crearResena">
   <h1>Leave a Comment</h1>
   <form name= "resenas" method= 'POST' action= '/playit/resenas'> <!-- le digo metodo y name p q funcione la ruta -->
     <input type="hidden" name="idPelicula" value="<%=idPelicula%>"> <!-- idPelicula se lo mando en el controlador en detail -->
-    <div class="uk-margin">
-        <div class="uk-inline">
-            <span class="uk-form-icon" uk-icon="icon: mail"></span>
-            <input class="uk-input  uk-form-width-large" type="text" name='email' placeholder="Email"> <!-- agrego name p el controlador -->
+    <!-- <div class="uk-margin">
+           <span class="uk-form-icon" uk-icon="icon: mail"></span>
+            <input class="uk-input  uk-form-width-large" type="text" name='email' placeholder="Email"> 
 
-        </div>
-    </div>
+        </div>  
+    </div> 
+   
+
 
     <div class="uk-margin">
       <div class="uk-inline">
           <span class="uk-form-icon" uk-icon="icon: lock"></span>
           <input class="uk-input uk-form-width-large" type="password" name='password' placeholder="Password">
       </div>
-  </div>
+  </div> -->
 
   <div class="uk-margin">
     <textarea class="uk-textarea uk-form-width-large" rows="5" name='comment' placeholder="Comment"></textarea>
@@ -123,6 +126,9 @@
 
 
 <button class="uk-button enviar">Post</button>
+<% } else { %>
+  <h1> Log In to leave a comment </h1>
+  <% } %>
 <h1>Other Users</h1>
 </form>
 
