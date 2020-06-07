@@ -48,36 +48,16 @@ let controlador = {
     
         
        users:(req,res)=>{
-        res.render('users') 
+        res.render('users') // te lleva al buscador de usarios, por ruta x get
         },
 
-      //usersPost: (req,res)=>{
-      //  var nombreUsuario = req.query.nombreUsuario // Agarra el input del buscador de usuarios que tiene de name "nombreUsuario" y lo guarda en una variable "nombreUsuario"
-      //  console.log(nombreUsuario) // Imprime en consola lo que puso el usuario
-        //modulo.buscarPorName(nombreUsuario) // Chequea si el nombre insertado en el imput existe en la base de datos
-        //.then(resultado =>{  
-          //console.log(resultado)
-          //if(resultado != null){ // Si el resultado es distinto a null...
-
-            //res.redirect('/playit/users') // Imprime el resultado en consola
-          //}else{ // Si no...
-            //res.send('No existe') // Imprime que hubo un error
-          //}
-       // })
-        // modulo.buscarPorEmail(nombreUsuario)
-        // .then(resultado =>{  
-        //   if(resultado != null){ // Si el resultado es distinto a null...
-        //     res.send(resultado) // Imprime el resultado en consola
-        //   }else{ // Si no...
-        //     res.send('No existe') // Imprime que hubo un error
-        //   }
-        // })
-        resultadoUsuarios: (req,res)=>{
-          var busqueda = req.query.nombreUsuario
-          playitBD.usuarios.findAll({
+     
+        resultadoUsuarios: (req,res)=>{ // Buscador de Usuarios
+          var busqueda = req.query.nombreUsuario // Saca de la url lo que el usuario escribio en el buscador
+          playitBD.usuarios.findAll({ // buscame en la base de datos, tabla de usuarios ..
             where:{
               [OP.or]:[
-                {name:{[OP.like]: "%"+ busqueda + "%"}},
+                {name:{[OP.like]: "%"+ busqueda + "%"}},  // por nombre O por email, si existe con cualquiera de las dos
                 {email: {[OP.like]:"%"+ busqueda + "%"}}
               ]
             }
@@ -85,10 +65,10 @@ let controlador = {
           .then (function(resultado){
             console.log(resultado)
             if (resultado.length >0 ){
-            res.render("resultados", {resultado:resultado}) }
-            else {
-              res.send('hay un error')
-
+            res.render("resultados", {resultado:resultado}) }// si hay un resultado mandame a la vista (donde voy a ver todos os usuarios que matchean con mi busqueda)
+            else{
+              
+              res.redirect ('/playit/users')
             }
               
             

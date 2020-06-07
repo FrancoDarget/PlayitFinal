@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/stylesheets/uikit.min.css" />
-    <link rel="stylesheet" href="/stylesheets/detalle.css">
+    <link rel="stylesheet" href="/stylesheets/users.css">
     <title></title>
 
   </head>
@@ -12,23 +12,79 @@
     <!-- Header -->
     <%-include('header')%>
     <!-- Header -->
-    <% for (let i=0; i< resultado.length; i++){ %>
-        <div class="usuario">
-            <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
-            <div class="nombre data">
-              <p><%= resultado[i].name %></p>
+
+    <div class="titulo">
+      <h1>Find friends</h1>
+      <p> The results of your search are displayed below </p>
+    </div>
+    
+    <div class="contenedorPadre">
+      <!-- Barra de buscar -->
+      <div class="buscador">
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+                
             </div>
-            <div class="email data">
-              <p><%= resultado[i].email %></p>
-            </div>
-            <div class="nacimiento data">
-              <p><%= resultado[i].birthdate %></p>
-            </div>
-            <div class="detalles">
-              <a href=<%= '/playit/usersdetails/'+  resultado[i].id %>>+</a>
-            </div>
+        </nav>
+      </div>
+      <!-- Barra de buscar -->
+      <!-- Lista con todos los usuarios -->
+      <div class="listadoUsuarios">
+
+        <!-- Item de usuario -->
+        <div class="usuario" style='border-top: 0px solid #f7f7f7!important;'>
+          <div class="imagen"><p>Image</p></div>
+          <div class="nombre data">
+            <p>Name</p>
           </div>
-          <% } %>
+          <div class="email data">
+            <p>Email</p>
+          </div>
+          <div class="nacimiento data">
+            <p>Birth Date</p>
+          </div>
+          <div class="detalles">
+            <a href=""></a>
+          </div>
+        </div>
+        <!-- Item de usuario -->
+
+        <!-- Item de usuario -->
+
+<!-- Item de usuario -->
+
+
+        <!-- Item de usuario -->
+        <% if (resultado.length>0) { %>
+         
+        <% for (let i=0; i< resultado.length; i++){ %>
+            <div class="usuario">
+                <div class="imagen"><img src="/images/iconoUsuario.png" alt=""></div>
+                <div class="nombre data">
+                  <p><%= resultado[i].name %></p>
+                </div>
+                <div class="email data">
+                  <p><%= resultado[i].email %></p>
+                </div>
+                <div class="nacimiento data">
+                  <p><%= resultado[i].birthdate %></p>
+                </div>
+                <div class="detalles">
+                  <a href=<%= '/playit/usersdetails/'+  resultado[i].id %>>+</a>
+                </div>
+              </div>
+              <% } } %>
+        <!-- Item de usuario -->
+
+
+
+       
+      </div>
+      <!-- Lista con todos los usuarios -->
+    </div>
+
+ 
+            
 
     <!-- Footer-->
 <%-include('footer')%>
