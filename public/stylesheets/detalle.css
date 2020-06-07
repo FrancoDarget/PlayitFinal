@@ -468,6 +468,14 @@ ul{
   margin-left: 80px;
 }
 
+.contenedorDelete {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 @media only screen and (max-device-width: 700px){
 
   .contenedorPadre2{
@@ -487,4 +495,5 @@ margin-left: 150px;
 margin-left: 110px;
 margin-top: 40px;
   }
+
 }
