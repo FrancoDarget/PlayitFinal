@@ -44,7 +44,7 @@ let moduloLogin = {
             }],
         })
         .then(results=>{
-            if(results && bcrypt.compareSync(
+            if(results && bcrypt.compareSync(   //para la contra encriptada
                 password,results.password)){
                     return results;    
                 }

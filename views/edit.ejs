@@ -17,21 +17,7 @@
     <h1>Edit</h1>
     <form name= "resenas" method= "POST" action="/playit/edit/<%=resultado.id%>" > <!-- le digo metodo y name p q funcione la ruta -->
    
-      <!-- <div class="uk-margin">
-          <div class="uk-inline">
-              <span class="uk-form-icon" uk-icon="icon: mail"></span>
-              <input class="uk-input  uk-form-width-large" type="text" name='email' placeholder="Email"> 
-  
-          </div>
-      </div>
-  
-      <div class="uk-margin">
-        <div class="uk-inline">
-            <span class="uk-form-icon" uk-icon="icon: lock"></span>
-            <input class="uk-input uk-form-width-large" type="password" name='password' placeholder="Password">
-        </div>
-    </div>
-   -->
+    
     <div class="uk-margin">
       <textarea class="uk-textarea uk-form-width-large" rows="5" name='comment' placeholder="Comment"><%=resultado.resena%></textarea>
     </div>

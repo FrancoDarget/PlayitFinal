@@ -36,7 +36,7 @@ let controlador = {
       playitBD.resenas.findAll( //pide que busque en la bd tds las resenas de la pelicula con ese id
         {
           where:{ idPelicula: idPelicula}, // uno es mi nombre de la columna de mi bd, el otro es la var que cree arriba 
-        include:[{association: 'users'}] }
+        include:[{association: 'users'}] } // incluyo la asociacion que une tablas, creada en el modelo
     
       )
     .then(function(resenas){
@@ -62,26 +62,25 @@ let controlador = {
               ]
             }
           })
-          .then (function(resultado){
+          .then (function(resultado){ // resultado es lo que trae de la bd el find all
             console.log(resultado)
             if (resultado.length >0 ){
             res.render("resultados", {resultado:resultado}) }// si hay un resultado mandame a la vista (donde voy a ver todos os usuarios que matchean con mi busqueda)
             else{
               
-              res.redirect ('/playit/users')
+              res.redirect ('/playit/users') // sino hay resultado volveme a cargar la pag asi busco otra cosa
             }
               
             
           })
       },
-     // resultados:(req,res)=>{
-      //  res.render('resultados')
-     // },
+     
 
       userdetails:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus datos
-        playitBD.usuarios.findByPk (req.params.id)
+        playitBD.usuarios.findByPk (req.params.id)  // busca por Primary Key (id) en la tabla usuarios, 
+                                                    // donde el id tiene que ser igual al que esta en la url (ruta x get)
         .then(resultado=>{
-        res.render('userDetail', {resultado:resultado})})
+        res.render('userDetail', {resultado:resultado})}) // mando a la vista el rtdo del fin by pk
       },
 
       registrate:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque registrarse
@@ -89,14 +88,14 @@ let controlador = {
       },
 
       myReviews:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus reviews
-        if(req.session.usuarioLogeado){
-          modulo.buscarPorEmail(req.session.usuarioLogeado)
+        if(req.session.usuarioLogeado){   // si hay un usuario logeado ( usuarioLogeado esta definido en app js)
+          modulo.buscarPorEmail(req.session.usuarioLogeado) // buscame por mail del que se logeo (funcion creada en el modulo de login)
           .then(resultado=>{
             console.log(resultado)
-            playitBD.resenas.findAll({
-                where:[ {idUsuario: resultado.id }]
+            playitBD.resenas.findAll({  // busca en la tabla de resenas 
+                where:[ {idUsuario: resultado.id }] //todos los que el id del usuario sea igual al que busque arriba con el find all
               })
-             .then(resultsResenas=>{
+             .then(resultsResenas=>{ //me trae todas las resenas de ese usuario
               console.log (resultsResenas)
                res.render('myReviews', {resultado:resultado,resultsResenas:resultsResenas})
               })
@@ -106,23 +105,23 @@ let controlador = {
         
       },
 
-      login:  (req, res) =>{ // Es la pagina que se va a ver cuando el usuario busque sus reviews
+      login:  (req, res) =>{ // Es la pagina que muestra el form de login, ruta por get
         
         res.render('login')
       },
-      loginPost: (req,res)=>{
-        modulo.validar(req.body.email, req.body.password)
-        .then(resultado=>{  
+      loginPost: (req,res)=>{ // ruta por post
+        modulo.validar(req.body.email, req.body.password) // uso funcion del modulo de log in, uso req.body porque es una ruta por POST para agarrar los datos del form
+        .then(resultado=>{  // si el usuario existe en mi bd: 
           console.log(resultado)
           if(resultado != null){
-            req.session.usuarioLogeado = req.body.email
-            if (req.body.recordame != undefined) {
-              res.cookie('recordame', req.session.usuarioLogeado, {
-                maxAge: 300000
-                //! Esto se guarda por 5 minutos
+            req.session.usuarioLogeado = req.body.email // uso log in general, me guarda en la sesion el email del usuario
+            if (req.body.recordame != undefined) { // si el usuario toco el cuadrado de recordame:
+              res.cookie('recordame', req.session.usuarioLogeado, { // uso cookies
+                maxAge: 300000    
+                //! Esto deja abierta la sesion por 5 minutos, aunque cierres la pestana
               });
             }
-            res.redirect('/playit/myreviews')
+            res.redirect('/playit/myreviews') // te redirige a tus reviews una ves que te logueaste
            
             
 
@@ -130,14 +129,14 @@ let controlador = {
           }
           else{
             
-              res.redirect('/playit/registrate')
+              res.redirect('/playit/registrate') // si no existis en la bd te manda a registrarte
           }
         })
 
       },
-      logout: function (req, res) {
-        req.session.destroy();
-        res.redirect('/playit/home');
+      logout: function (req, res) { // si apretas el boton de log out
+        req.session.destroy(); // se te cierra la sesion
+        res.redirect('/playit/home'); // te redirige a home
       },
     
     registration: (req,res)=>{ //ESTO ES REGISTRACION
@@ -156,32 +155,32 @@ let controlador = {
      
         },
         generoFavorito: function(req,res){
-          var generoFavorito= req.body.generoFavorito
+          var generoFavorito= req.body.generoFavorito 
         },
       nuevaResena: (req,res)  =>{
-        if(req.session.usuarioLogeado){
-          modulo.buscarPorEmail(req.session.usuarioLogeado)  //\busca un usuario por email en la bd (del usuario que ya esta logueado)
+        if(req.session.usuarioLogeado){ // si hay una sesion abierta: 
+          modulo.buscarPorEmail(req.session.usuarioLogeado)  //busca un usuario por email en la bd (del usuario que ya esta logueado)
           .then(resultado=>{  
-          console.log(resultado) //me muestra los datos de la bd del usuario
+          console.log(resultado) //me muestra los datos de la bd del usuario encontrado
         
-          if(resultado != null){ // si existe un resultado, crea la resena. Resultado esta definido en el mdulo de login
+          if(resultado != null){ // si existe un resultado, crea la resena
           let nuevaResena= {   
-            resena: req.body.comment, //saca la info de lo q competa el usuario
+            resena: req.body.comment, //saca la info de lo q competa el usuario. req.body porque el form esta por POST
             puntaje: req.body.puntaje, // saca la info de lo q completa el usuario
-            idUsuario: resultado.id, //lo saca de los datos que me trajo mi base de datos
-            idPelicula: req.body.idPelicula, //idPelicula esta definida arriba de todo
+            idUsuario: resultado.id, //lo saca de los datos que me trajo mi base de datos cuando busque x email
+            idPelicula: req.body.idPelicula, //idPelicula es un campo en hidden
             createdAt: playitBD.sequelize.literal("CURRENT_DATE"),// para que se guarde la fecha de hoy
-            updatedAt: playitBD.sequelize.literal("CURRENT_DATE") ,
+            updatedAt: playitBD.sequelize.literal("CURRENT_DATE") , // para que guarde la fecha de hoy
           }
-          console.log (nuevaResena)
+          console.log (nuevaResena) // muestra en consola lo que acabo de crear
           playitBD.resenas.create(nuevaResena) //crea la resena en la tabla de la bd cn lo que escribio el usuario
           .then ( function (){
-            var idPelicula = req.body.idPelicula
-            return res.redirect('/playit/detail?idPelicula='+idPelicula)}) //te redirecciona al detalle
+            var idPelicula = req.body.idPelicula // lo mismo que antes, es un campo en hidden
+            return res.redirect('/playit/detail?idPelicula='+idPelicula)}) //te redirecciona al detalle de esa pelicula (con tu resena)
         }
 
           else{
-            return res.send ("hay un error")
+            return res.send ("hay un error") 
           }
           
         })
@@ -190,22 +189,18 @@ let controlador = {
       
 
       },
-      editar: (req,res)=>{
-       modulo.buscarPorEmail(req.session.usuarioLogeado) 
+      editar: (req,res)=>{ // para editar un resena en My Reviews 
+       modulo.buscarPorEmail(req.session.usuarioLogeado)  //busca un usuario por email en la bd (del usuario que ya esta logueado)
        .then(results=>{
          var dataUsuario= results
-         playitBD.resenas.findByPk(req.params.id)
+         playitBD.resenas.findByPk(req.params.id) // busca por primary key
            
          .then(resultado=>{
            if(resultado.idUsuario == dataUsuario.id)
             res.render ('edit',{resultado:resultado})
          })
        })
-          
-      
-          
-        
-      
+
       },
       editacionResena: (req,res)=>{
 
@@ -239,18 +234,9 @@ let controlador = {
              res.render ('delete',{resultado:resultado})
           })
         })
-           
-       
-           
-         
-       
-       },
-        
 
-        
-    
-           
-        
+       },
+ 
       deletePost: (req,res)=>{
         
           
